@@ -1,32 +1,91 @@
-# CodeIgniter 4 Application Starter
+# CV Dinamika
+
+A dynamic CV/Portfolio website built with CodeIgniter 4, featuring admin panel for content management, product showcase, blog, testimonials, and contact forms.
+
+## Features
+
+- **Landing Page**: Professional homepage with hero section, services, portfolio, team, and testimonials
+- **Admin Panel**: Complete CMS for managing content including:
+  - Products/Services
+  - Blog posts
+  - Projects/Portfolio
+  - Team members
+  - Testimonials
+  - Site settings
+  - Contact messages
+- **Responsive Design**: Mobile-friendly interface using Bootstrap
+- **Multi-language Support**: Ready for internationalization
+- **SEO Friendly**: Clean URLs and meta tags
+- **Contact Integration**: Contact form with email notifications
+
+## Technology Stack
+
+- **Framework**: CodeIgniter 4
+- **Frontend**: HTML5, CSS3, Bootstrap 5, JavaScript
+- **Database**: MySQL
+- **Server**: Apache/Nginx with PHP 8.1+
 
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
 More information can be found at the [official site](https://codeigniter.com).
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
-
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
-
+This project is built using CodeIgniter 4 framework.
 You can read the [user guide](https://codeigniter.com/user_guide/)
 corresponding to the latest version of the framework.
 
-## Installation & updates
+## Installation
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+1. **Clone or Download** the project files to your local environment
+2. **Install Dependencies**:
+   ```bash
+   composer install
+   ```
+3. **Environment Setup**:
+   - Copy `env` to `.env`
+   - Configure your database settings in `.env`
+   - Set baseURL and other environment variables
+
+4. **Database Setup**:
+   - Create a MySQL database
+   - Run migrations: `php spark migrate`
+   - Run seeders: `php spark db:seed SettingSeeder`
+
+5. **Permissions**:
+   - Ensure `writable/` directory is writable by the web server
+   - Set proper permissions for `public/uploads/` directory
+
+## Usage
+
+- **Public Site**: Access the landing page at your base URL
+- **Admin Panel**: Login at `/login` with admin credentials
+- **Development**: Use `php spark serve` for local development
+
+## Project Structure
+
+- `app/Controllers/` - Application controllers
+- `app/Models/` - Database models
+- `app/Views/` - Template files
+- `app/Config/` - Configuration files
+- `public/` - Public assets (CSS, JS, images)
+- `writable/` - Cache, logs, sessions, uploads
+
+## Installation & Framework Updates
+
+For CodeIgniter framework updates, run `composer update` whenever there is a new release.
 
 When updating, check the release notes to see if there are any changes you might need to apply
 to your `app` folder. The affected files can be copied or merged from
 `vendor/codeigniter4/framework/app`.
 
-## Setup
+## Configuration
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+After installation, configure the following in your `.env` file:
+
+- **Database**: Set database name, username, password
+- **Base URL**: Set your domain/base URL
+- **Encryption Key**: Generate a secure key for sessions
+- **Email Settings**: Configure SMTP for contact forms (optional)
 
 ## Important Change with index.php
 
@@ -39,14 +98,23 @@ framework are exposed.
 
 **Please** read the user guide for a better explanation of how CI4 works!
 
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Repository Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+For CodeIgniter framework related issues, please refer to the [official CodeIgniter repository](https://github.com/codeigniter4/CodeIgniter4).
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Project-specific issues can be reported via GitHub issues in this repository.
 
 ## Server Requirements
 

@@ -30,6 +30,10 @@
         .sidebar .nav-link.active {
             background-color: #0d6efd !important;
             box-shadow: 0 4px 6px rgba(13, 110, 253, 0.4);
+            color: #ffffff !important;
+        }
+        .sidebar .nav-link.active i {
+            color: #ffffff !important;
         }
 
         /* Main Content */

@@ -5,7 +5,7 @@
         <div class="container py-5">
             <div class="row g-5 align-items-center mb-5">
                 <div class="col-lg-6">
-                    <h1 class="display-1 mb-4"><?= $settings['site_title'] ?? 'CV Dinamika' ?> <span class="text-primary"></span>
+                    <h1 class="display-1 mb-4"><?= $settings['site_title'] ?? 'CV Dinamika Inti' ?> <span class="text-primary"></span>
                         Ada Untuk Anda.</h1>
                     <h6 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
                         "SELALU MELAKUKAN YANG TERBAIK , UNTUK MENJADI YANG TERBAIK"</h6>
@@ -22,7 +22,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
+                            <i class="fa fa-shopping-cart text-primary"></i>
                         </div>
                         <h5 class="lh-base mb-0">Penjualan produk</h5>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
+                            <i class="fa fa-tools text-primary"></i>
                         </div>
                         <h5 class="lh-base mb-0">Pemasangan produk</h5>
                     </div>
@@ -38,7 +38,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
+                            <i class="fa fa-truck text-primary"></i>
                         </div>
                         <h5 class="lh-base mb-0">Pengiriman produk tepat waktu</h5>
                     </div>
@@ -46,7 +46,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
+                            <i class="fa fa-shield-alt text-primary"></i>
                         </div>
                         <h5 class="lh-base mb-0">Garansi Material dan Pemasangan</h5>
                     </div>
@@ -62,21 +62,21 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="img/harm.jpg" alt="">
+                    <div class="row g-3">
+                        <div class="col-6 text-end wow fadeInLeft" data-wow-delay="0.1s">
+                            <img class="img-fluid rounded shadow w-100" src="img/harm.jpg" alt="" style="object-fit: cover; height: 350px;">
                         </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid h-75" src="img/moni.jpg" alt="">
-                            <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
-                                <h4 class="text-white lh-base mb-0">Sejak 2016 resmi berbadan hukum CV pada tahun 2021</h4>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded shadow w-100 wow zoomIn" data-wow-delay="0.3s" src="img/moni.jpg" alt="" style="object-fit: cover; height: 250px;">
+                            <div class="mt-3 d-flex align-items-center justify-content-center text-center bg-primary shadow-sm p-3 wow fadeInUp" data-wow-delay="0.5s" style="height: 97px; border-radius: 15px;">
+                                <h6 class="text-white lh-base mb-0 fw-bold"><i class="fas fa-calendar-check me-2"></i>Sejak 2016 resmi berbadan hukum CV pada tahun 2021</h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">Sejarah</span><?= $settings['site_title'] ?? 'CV Dinamika' ?></h1>
-                    <p class="mb-4"><?= $settings['site_title'] ?? 'CV Dinamika' ?> berdiri sejak 2016 resmi berbadan hukum CV pada tahun 2021, sebagai pemegang merek dan mulai mendistribusikan di Indonesia dan akan menjadi Market Leader dalam pemasaran Lantai Kayu (Laminate Flooring) dan Lantai Vinyl (Vinyl Floor).</p>
+                    <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">Sejarah</span> <?= $settings['site_title'] ?? 'CV Dinamika Inti' ?></h1>
+                    <p class="mb-4"><?= $settings['site_title'] ?? 'CV Dinamika Inti' ?> berdiri sejak 2016 resmi berbadan hukum CV pada tahun 2021, sebagai pemegang merek dan mulai mendistribusikan di Indonesia dan akan menjadi Market Leader dalam pemasaran Lantai Kayu (Laminate Flooring) dan Lantai Vinyl (Vinyl Floor).</p>
                     <p class="mb-5">Kami Menyediakan Keseluruhan produk yang memiliki kualitas terbaik
 yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                     <div class="row g-3">
@@ -90,7 +90,7 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-5">
-                        <a class="btn btn-primary px-4 me-2" href="#!">Selengkapnya</a>
+                        <a class="btn btn-primary px-4 me-2" href="/sejarah">Selengkapnya</a>
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
                                 class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
@@ -232,7 +232,7 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="row g-0">
+                    <div class="row g-3">
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
                             <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
                                 <a href="#!" class="service-img position-relative mb-4">

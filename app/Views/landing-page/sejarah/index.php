@@ -28,11 +28,11 @@
             <div class="row g-5 mb-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="row g-3">
-                        <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= base_url('img/harm.jpg') ?>" style="margin-top: 25%;">
+                        <div class="col-12 mb-3">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= base_url('img/harm.jpg') ?>">
                         </div>
-                        <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="<?= base_url('img/moni.jpg') ?>">
+                        <div class="col-12">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="<?= base_url('img/moni.jpg?v=' . time()) ?>">
                         </div>
                     </div>
                 </div>

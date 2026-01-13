@@ -40,7 +40,7 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h1 class="mb-4">Tentang <span class="text-primary"><?= $settings['site_title'] ?? 'CV Dinamika' ?></span></h1>
                     
-                    <div class="mb-4 text-secondary lh-lg">
+                    <div class="mb-4 text-secondary lh-lg" style="text-align: justify;">
                         <?= nl2br($settings['about_history'] ?? 'Isi sejarah perusahaan belum diatur.') ?>
                     </div>
 
@@ -71,16 +71,16 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 bg-white p-5 rounded shadow-sm">
-                        <h3 class="mb-4 text-primary"><i class="fas fa-eye me-2"></i>Visi Kami</h3>
-                        <p class="lead text-secondary mb-0"><?= nl2br($settings['about_vision'] ?? 'Menjadi perusahaan terdepan...') ?></p>
+                        <h3 class="mb-4 text-primary"><i class="fas fa-eye me-2"></i>Visi, Misi Kami</h3>
+                        <p class="text-secondary mb-0 lh-lg"><?= nl2br($settings['about_vision'] ?? 'Menjadikan CV.DINAMIKA INTI sebagai perusahaan pertama yang menghasilkan produk teknologi tinggi ramah lingkungan dengan pengawasan yang ketat mengintegrasikan penelitian dan pengembangan , produksi penjualan serta pelayan prima.') ?></p>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 bg-white p-5 rounded shadow-sm">
-                        <h3 class="mb-4 text-primary"><i class="fas fa-rocket me-2"></i>Misi Kami</h3>
-                        <div class="text-secondary">
-                            <?= nl2br($settings['about_mission'] ?? '- Menyediakan produk berkualitas.') ?>
-                        </div>
+                        <h3 class="mb-4 text-primary"><i class="fas fa-rocket me-2"></i>Moto Kami</h3>
+                        <p class="text-secondary mb-0 lh-lg">
+                            <?= nl2br($settings['about_mission'] ?? 'Moto CV.DINAMIKA INTI adalah "SELALU MELAKUKAN YANG TERBAIK , UNTUK MENJADI YANG TERBAIK" , dengan menjamin kepuasan konsumen terhadap produk kami , karena menggunakan bahan - bahan produksi berkualitas sangat baik dan memberikan purna jual yang memuaskan.') ?>
+                        </p>
                     </div>
                 </div>
             </div>

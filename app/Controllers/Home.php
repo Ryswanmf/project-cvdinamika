@@ -63,6 +63,11 @@ class Home extends BaseController
         return view('landing-page/tentang-kami/index', ['settings' => $this->siteSettings]);
     }
 
+    public function sejarah(): string
+    {
+        return view('landing-page/sejarah/index', ['settings' => $this->siteSettings]);
+    }
+
     public function contact(): string
     {
         return view('landing-page/kontak/index', ['settings' => $this->siteSettings]);

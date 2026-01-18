@@ -10,37 +10,32 @@
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                     <h5 class="text-white mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i><?= $settings['contact_address'] ?? 'Alamat' ?></p>
-                    <p><i class="fa fa-phone-alt me-3"></i><?= $settings['contact_phone'] ?? 'Telepon' ?></p>
-                    <p><i class="fa fa-envelope me-3"></i><?= $settings['contact_email'] ?? 'Email' ?></p>
+                    <p><i class="fa fa-map-marker-alt me-3"></i><?= $settings['contact_address'] ?? 'Jl. Raden Saleh No.18 Rt.002/Rw.009 Karang Mulya Karang Tengah Kota Tangerang Titik Kios Mega Ria Ruko Pojok No.5, Patokan Samping Gepuk Pak Gembus Sebrang Klinik Stella Medika' ?></p>
+                    <p><i class="fa fa-phone-alt me-3"></i><?= $settings['contact_phone'] ?? '+62 0813-1974-0808' ?></p>
+                    <p><i class="fa fa-envelope me-3"></i><?= $settings['contact_email'] ?? 'harmony.decor26@gmail.com' ?></p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.instagram.com/harmony_decor_karangtengah?igsh=MWUwazlldm5vMzF3dA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://tk.tokopedia.com/ZSaJJGgC2/" target="_blank"><i class="fas fa-shopping-bag"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://s.shopee.co.id/2g4xeUpgAS" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                     <h5 class="text-white mb-4">Popular Link</h5>
-                    <a class="btn btn-link" href="#!">About Us</a>
-                    <a class="btn btn-link" href="#!">Contact Us</a>
-                    <a class="btn btn-link" href="#!">Privacy Policy</a>
-                    <a class="btn btn-link" href="#!">Terms & Condition</a>
-                    <a class="btn btn-link" href="#!">Career</a>
+                    <a class="btn btn-link" href="/">Beranda</a>
+                    <a class="btn btn-link" href="/produk">Produk</a>
+                    <a class="btn btn-link" href="/portofolio">Portofolio</a>
+                    <a class="btn btn-link" href="/blog">Blog</a>
+                    <a class="btn btn-link" href="/kontak">Kontak</a>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="#!">Interior Design</a>
-                    <a class="btn btn-link" href="#!">Project Planning</a>
-                    <a class="btn btn-link" href="#!">Renovation</a>
-                    <a class="btn btn-link" href="#!">Implement</a>
-                    <a class="btn btn-link" href="#!">Landscape Design</a>
+                    <a class="btn btn-link" href="/">Penjualan Produk</a>
+                    <a class="btn btn-link" href="/">Survey Lokasi Pemasangan</a>
+                    <a class="btn btn-link" href="/">Pengiriman Tepat Waktu</a>
+                    <a class="btn btn-link" href="/">Pemasangan Produk</a>
+                    <a class="btn btn-link" href="/">Garansi Material</a>
+                    <a class="btn btn-link" href="/">Garansi Pemasangan</a>
                 </div>
             </div>
         </div>
@@ -49,20 +44,6 @@
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="/"><?= $settings['site_title'] ?? 'CV Dinamika' ?></a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>. Distributed by
-                        <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="#!">Home</a>
-                            <a href="#!">Cookies</a>
-                            <a href="#!">Help</a>
-                            <a href="#!">FAQs</a>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -20,15 +20,28 @@
 
                     <div class="mb-3">
                         <label for="category" class="form-label">Kategori</label>
-                        <input type="text" class="form-control <?= $validation->hasError('category') ? 'is-invalid' : '' ?>" 
-                               id="category" name="category" value="<?= old('category') ?>" placeholder="Contoh: Tips Interior, Berita, dll" required>
+                        <select class="form-select <?= $validation->hasError('category') ? 'is-invalid' : '' ?>" id="category" name="category" required>
+                            <option value="">-- Pilih Kategori --</option>
+                            <option value="Interior" <?= old('category') == 'Interior' ? 'selected' : '' ?>>Interior</option>
+                            <option value="Tips & Trik" <?= old('category') == 'Tips & Trik' ? 'selected' : '' ?>>Tips & Trik</option>
+                            <option value="Produk" <?= old('category') == 'Produk' ? 'selected' : '' ?>>Produk</option>
+                            <option value="Berita" <?= old('category') == 'Berita' ? 'selected' : '' ?>>Berita</option>
+                            <option value="Panduan" <?= old('category') == 'Panduan' ? 'selected' : '' ?>>Panduan</option>
+                        </select>
                         <div class="invalid-feedback"><?= $validation->getError('category') ?></div>
                     </div>
 
                     <div class="mb-3">
                         <label for="content" class="form-label">Isi Artikel</label>
-                        <textarea class="form-control" id="content" name="content" rows="10" required><?= old('content') ?></textarea>
-                        <div class="form-text">Anda bisa menggunakan HTML basic untuk formatting.</div>
+                        <textarea class="form-control" id="content" name="content" rows="15" required><?= old('content') ?></textarea>
+                        <div class="form-text">
+                            <strong>Panduan Format:</strong><br>
+                            - Untuk judul section: <code>&lt;h3&gt;Judul Section&lt;/h3&gt;</code><br>
+                            - Untuk paragraf: <code>&lt;p&gt;Isi paragraf...&lt;/p&gt;</code><br>
+                            - Untuk list: <code>&lt;ol&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;/ol&gt;</code><br>
+                            - Untuk bold: <code>&lt;strong&gt;teks tebal&lt;/strong&gt;</code><br>
+                            - Untuk italic: <code>&lt;em&gt;teks miring&lt;/em&gt;</code>
+                        </div>
                     </div>
 
                     <div class="mb-4">
@@ -36,15 +49,28 @@
                         <input type="file" class="form-control <?= $validation->hasError('image') ? 'is-invalid' : '' ?>" 
                                id="image" name="image" accept="image/*" required>
                         <div class="invalid-feedback"><?= $validation->getError('image') ?></div>
+                        <div class="form-text">Ukuran maksimal: 2MB. Format: JPG, PNG, JPEG</div>
                     </div>
 
                     <div class="d-flex justify-content-end gap-2">
-                        <a href="<?= site_url('admin/blog') ?>" class="btn btn-light px-4">Batal</a>
-                        <button type="submit" class="btn btn-primary px-4">Terbitkan</button>
+                        <a href="<?= site_url('admin/blog') ?>" class="btn btn-light px-4">
+                            <i class="fas fa-times me-2"></i>Batal
+                        </a>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="fas fa-paper-plane me-2"></i>Terbitkan
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+#content {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+}
+</style>
+
 <?= $this->endSection() ?>

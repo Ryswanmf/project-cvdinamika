@@ -89,19 +89,34 @@ class Home extends BaseController
 
     public function products(): string
     {
-        // Ambil filter kategori dari URL jika ada
+        // Ambil filter kategori, brand, dan series dari URL
         $category = $this->request->getGet('category');
+        $brand = $this->request->getGet('brand');
+        $series = $this->request->getGet('series');
         
+        // Filter by category
         if ($category && $category != 'Semua') {
-            $products = $this->productModel->where('category', $category)->findAll();
-        } else {
-            $products = $this->productModel->findAll();
+            $this->productModel->where('category', $category);
         }
+        
+        // Filter by brand
+        if ($brand) {
+            $this->productModel->like('name', $brand, 'after');
+        }
+        
+        // Filter by series (sub-category dari brand)
+        if ($series) {
+            $this->productModel->like('name', $series, 'after');
+        }
+        
+        $products = $this->productModel->findAll();
 
         $data = [
             'settings' => $this->siteSettings,
             'products' => $products,
-            'current_category' => $category ?? 'Semua'
+            'current_category' => $category ?? 'Semua',
+            'current_brand' => $brand ?? '',
+            'current_series' => $series ?? ''
         ];
         return view('landing-page/produk/index', $data);
     }

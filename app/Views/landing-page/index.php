@@ -91,14 +91,10 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                     </div>
                     <div class="d-flex align-items-center mt-5">
                         <a class="btn btn-primary px-4 me-2" href="/sejarah">Selengkapnya</a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2" href="#!"><i
-                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.instagram.com/harmony_decor_karangtengah?igsh=MWUwazlldm5vMzF3dA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://tk.tokopedia.com/ZSaJJGgC2/" target="_blank"><i class="fas fa-shopping-bag"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2" href="https://s.shopee.co.id/2g4xeUpgAS" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -171,33 +167,46 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
 
 
     <!-- Project Start -->
-    <div class="container-fluid mt-5">
-        <div class="container mt-5">
-            <div class="row g-0">
+    <div class="container-fluid mt-5 py-5">
+        <div class="container">
+            <div class="row g-4">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5">
-                        <h1 class="text-white mb-5">Proyek Baru Baru Ini <span
-                                class="text-uppercase text-primary bg-light px-2"></span></h1>
-                        <h4 class="text-white mb-0"><span class="display-1"><?= count($recent_projects) ?></span> proyek terakhir kami</h4>
+                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5 rounded shadow">
+                        <h1 class="text-white mb-4">Proyek Terbaru Kami</h1>
+                        <div class="d-flex align-items-center mb-4">
+                            <span class="display-1 text-white fw-bold me-3"><?= count($recent_projects) ?></span>
+                            <h4 class="text-white mb-0">Proyek<br>Terakhir Kami</h4>
+                        </div>
+                        <p class="text-white-50 mb-4">Lihat hasil instalasi terbaru dari tim profesional kami yang telah dipercaya oleh berbagai klien.</p>
+                        <a href="/portofolio" class="btn btn-light btn-lg align-self-start">
+                            Lihat Semua Proyek
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="row g-0">
+                    <div class="row g-4">
                         <?php foreach($recent_projects as $key => $project): ?>
                         <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="<?= 0.2 + ($key * 0.1) ?>s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="uploads/projects/<?= $project['image'] ?>" alt="<?= $project['title'] ?>" style="height: 250px; object-fit: cover;">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white"><?= $project['title'] ?></h4>
-                                    <small class="text-white"><?= $project['category'] ?? 'Proyek' ?></small>
-                                </a>
+                            <div class="project-item position-relative overflow-hidden rounded shadow-sm h-100">
+                                <img class="img-fluid w-100" 
+                                     src="uploads/projects/<?= $project['image'] ?>" 
+                                     alt="<?= $project['title'] ?>" 
+                                     style="height: 250px; object-fit: cover;">
+                                <div class="project-overlay d-flex flex-column justify-content-end p-4 text-decoration-none">
+                                    <h5 class="text-white mb-2"><?= $project['title'] ?></h5>
+                                    <small class="text-white-50">
+                                        <i class="fas fa-tag me-2"></i><?= $project['category'] ?? 'Proyek' ?>
+                                    </small>
+                                </div>
                             </div>
                         </div>
                         <?php endforeach; ?>
                         
                         <?php if(empty($recent_projects)): ?>
-                        <div class="col-12 p-5 text-center bg-light">
-                            <p>Belum ada proyek yang ditampilkan.</p>
+                        <div class="col-12 p-5 text-center bg-light rounded">
+                            <i class="fas fa-folder-open fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Belum ada proyek yang ditampilkan.</p>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -213,64 +222,80 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="mb-5">Our Creative <span
-                            class="text-uppercase text-primary bg-light px-2">Services</span></h1>
-                    <p>Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <p class="mb-5">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
+                    <h1 class="display-5 mb-4">OUR SERVICE</h1>
+                    <h4 class="text-primary mb-4">CV. DINAMIKA INTI</h4>
+                    <p class="mb-3" style="text-align: justify;"><strong>CV.DINAMIKA INTI</strong> selalu memberikan pelayanan terbaik, produk berkualitas dan harga yang kompetitif.</p>
+                    <p class="mb-3" style="text-align: justify;">Kami sangat berkomitmen penuh pada bidang usaha yang kami kerjakan, yaitu pemasaran produk lantai kayu dan lantai vinyl <strong>LX Hausys & LG Hausys</strong>.</p>
+                    <p class="mb-4" style="text-align: justify;">Dengan pengalaman bertahun tahun juga didukung oleh seluruh tenaga kerja yang profesional serta kerja sama yang baik terhadap para agen, toko, dan kontraktor yang ada di seluruh Indonesia membuat kami yakin untuk dapat melayani seluruh pelanggan dimanapun berada secara konsisten.</p>
+                    
+                    <h5 class="mb-3">Adapun pelayanan kami meliputi:</h5>
+                    <div class="row g-2 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Penjualan Produk</p>
+                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Survey Lokasi Pemasangan</p>
+                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Pengiriman Tepat Waktu</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Pemasangan Produk</p>
+                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Garansi Material</p>
+                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Garansi Pemasangan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center bg-light rounded p-3">
+                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 80px; height: 80px;">
                             <i class="fa fa-phone fa-2x text-white"></i>
                         </div>
-                        <div class="px-3">
-                            <h3>+0123456789</h3>
-                            <span>Call us direct 24/7 for get a free consultation</span>
+                        <div class="ps-3">
+                            <h5 class="mb-1">+62 0813-1974-0808</h5>
+                            <small>Hubungi kami untuk konsultasi gratis</small>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-3">
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-1.jpg" alt="">
-                                    <h3>Interior Design</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
+                            <div class="service-item h-100 d-flex flex-column bg-primary rounded overflow-hidden">
+                                <div class="service-img position-relative">
+                                    <img class="img-fluid w-100" src="img/service-1.jpg" alt="Penjualan Produk" style="height: 140px; object-fit: cover;">
+                                </div>
+                                <div class="p-3 flex-grow-1 d-flex flex-column">
+                                    <h5 class="text-white mb-2">Penjualan Produk</h5>
+                                    <p class="text-white mb-0 small" style="text-align: justify;">Menyediakan lantai vinyl dan kayu berkualitas tinggi dari brand LX Hausys & LG Hausys dengan harga kompetitif.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-2.jpg" alt="">
-                                    <h3>Implement</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
+                            <div class="service-item h-100 d-flex flex-column bg-light rounded overflow-hidden">
+                                <div class="service-img position-relative">
+                                    <img class="img-fluid w-100" src="img/service-2.jpg" alt="Survey & Konsultasi" style="height: 140px; object-fit: cover;">
+                                </div>
+                                <div class="p-3 flex-grow-1 d-flex flex-column">
+                                    <h5 class="mb-2">Survey & Konsultasi</h5>
+                                    <p class="mb-0 small" style="text-align: justify;">Layanan survey lokasi gratis dan konsultasi pemilihan produk yang tepat sesuai kebutuhan proyek Anda.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-3.jpg" alt="">
-                                    <h3>Renovation</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
+                            <div class="service-item h-100 d-flex flex-column bg-light rounded overflow-hidden">
+                                <div class="service-img position-relative">
+                                    <img class="img-fluid w-100" src="img/service-3.jpg" alt="Instalasi Profesional" style="height: 140px; object-fit: cover;">
+                                </div>
+                                <div class="p-3 flex-grow-1 d-flex flex-column">
+                                    <h5 class="mb-2">Instalasi Profesional</h5>
+                                    <p class="mb-0 small" style="text-align: justify;">Pemasangan oleh tim ahli bersertifikat dengan teknik welding presisi untuk hasil yang rapi dan tahan lama.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-4.jpg" alt="">
-                                    <h3>Commercial</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
+                            <div class="service-item h-100 d-flex flex-column bg-primary rounded overflow-hidden">
+                                <div class="service-img position-relative">
+                                    <img class="img-fluid w-100" src="img/service-4.jpg" alt="Garansi & After Sales" style="height: 140px; object-fit: cover;">
+                                </div>
+                                <div class="p-3 flex-grow-1 d-flex flex-column">
+                                    <h5 class="text-white mb-2">Garansi & After Sales</h5>
+                                    <p class="text-white mb-0 small" style="text-align: justify;">Garansi material dan pemasangan serta layanan purna jual yang responsif untuk kepuasan Anda.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -279,37 +304,203 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
         </div>
     </div>
     <!-- Service End -->
-
-
-    <!-- Team Start -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <h1 class="mb-5">Our Professional <span class="text-uppercase text-primary bg-light px-2">Designers</span>
-            </h1>
-            <div class="row g-4">
-                <?php foreach($teams as $team): ?>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="<?= base_url('uploads/team/' . $team['image']) ?>" alt="<?= esc($team['name']) ?>" loading="lazy">
-                        <div class="team-overlay">
-                            <small class="mb-2"><?= esc($team['position']) ?></small>
-                            <h4 class="lh-base text-light"><?= esc($team['name']) ?></h4>
-                            <div class="d-flex justify-content-center">
-                                <?php if(!empty($team['social_fb'])): ?>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="<?= esc($team['social_fb']) ?>"><i class="fab fa-facebook-f"></i></a>
-                                <?php endif; ?>
-                                <?php if(!empty($team['social_instagram'])): ?>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="<?= esc($team['social_instagram']) ?>"><i class="fab fa-instagram"></i></a>
-                                <?php endif; ?>
+    
+    <!-- Marketplace Section Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h6 class="text-primary">BELANJA ONLINE</h6>
+                <h1 class="display-5 mb-4">Kunjungi Toko Online Kami</h1>
+                <p class="mb-4">Temukan produk vinyl flooring berkualitas dari Harmony Decor di marketplace terpercaya</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a href="https://www.tokopedia.com/harmonydecor" target="_blank" class="marketplace-link">
+                        <div class="marketplace-card tokopedia-card">
+                            <div class="marketplace-logo-wrapper">
+                                <img src="<?= base_url('img/tokopedia_logo.webp') ?>" alt="Tokopedia" class="marketplace-logo">
+                            </div>
+                            <div class="marketplace-info">
+                                <h3>Harmony Decor</h3>
+                                <p class="mb-0">Official Store di Tokopedia</p>
+                                <span class="visit-store">
+                                    <i class="fas fa-shopping-bag me-2"></i>Kunjungi Toko
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <?php endforeach; ?>
+                <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <a href="https://s.shopee.co.id/2g4xeUpgAS" target="_blank" class="marketplace-link">
+                        <div class="marketplace-card shopee-card">
+                            <div class="marketplace-logo-wrapper">
+                                <img src="<?= base_url('img/shopee_logo.png') ?>" alt="Shopee" class="marketplace-logo shopee-logo">
+                            </div>
+                            <div class="marketplace-info">
+                                <h3>Harmony Decor</h3>
+                                <p class="mb-0">Official Store di Shopee</p>
+                                <span class="visit-store">
+                                    <i class="fas fa-shopping-bag me-2"></i>Kunjungi Toko
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Team End -->
+    <!-- Marketplace Section End -->
+    
+    <style>
+    .marketplace-link {
+        text-decoration: none;
+        display: block;
+    }
+    
+    .marketplace-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 3px solid transparent;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .marketplace-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    
+    .tokopedia-card:hover {
+        border-color: #42B549;
+        background: linear-gradient(135deg, #f8fff9 0%, #ffffff 100%);
+    }
+    
+    .shopee-card:hover {
+        border-color: #EE4D2D;
+        background: linear-gradient(135deg, #fff8f6 0%, #ffffff 100%);
+    }
+    
+    .marketplace-logo-wrapper {
+        width: 100%;
+        max-width: 300px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .marketplace-card:hover .marketplace-logo-wrapper {
+        transform: scale(1.05);
+    }
+    
+    .tokopedia-card:hover .marketplace-logo-wrapper {
+        background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f2 100%);
+    }
+    
+    .shopee-card .marketplace-logo-wrapper {
+        background: transparent !important;
+    }
+    
+    .shopee-card:hover .marketplace-logo-wrapper {
+        background: transparent !important;
+    }
+    
+    .marketplace-logo {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+    
+    .shopee-logo {
+        background: transparent !important;
+        mix-blend-mode: darken;
+        filter: none;
+    }
+    
+    .marketplace-info h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        transition: color 0.3s ease;
+    }
+    
+    .tokopedia-card:hover .marketplace-info h3 {
+        color: #42B549;
+    }
+    
+    .shopee-card:hover .marketplace-info h3 {
+        color: #EE4D2D;
+    }
+    
+    .marketplace-info p {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .visit-store {
+        display: inline-flex;
+        align-items: center;
+        padding: 15px 35px;
+        background: linear-gradient(135deg, #14756E 0%, #1a9187 100%);
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(20, 117, 110, 0.3);
+    }
+    
+    .tokopedia-card:hover .visit-store {
+        background: linear-gradient(135deg, #42B549 0%, #36a03f 100%);
+        box-shadow: 0 6px 20px rgba(66, 181, 73, 0.4);
+    }
+    
+    .shopee-card:hover .visit-store {
+        background: linear-gradient(135deg, #EE4D2D 0%, #d43d1f 100%);
+        box-shadow: 0 6px 20px rgba(238, 77, 45, 0.4);
+    }
+    
+    .marketplace-card:hover .visit-store {
+        transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+        .marketplace-card {
+            padding: 30px 20px;
+        }
+        
+        .marketplace-logo-wrapper {
+            max-width: 200px;
+            height: 90px;
+        }
+        
+        .marketplace-info h3 {
+            font-size: 1.5rem;
+        }
+        
+        .visit-store {
+            font-size: 1rem;
+            padding: 12px 28px;
+        }
+    }
+    </style>
 
 
     <!-- Testimonial Start -->

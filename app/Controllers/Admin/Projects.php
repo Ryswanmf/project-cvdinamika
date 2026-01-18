@@ -58,13 +58,21 @@ class Projects extends BaseController
         $fileName = $file->getRandomName();
         $file->move('uploads/projects', $fileName);
 
+        // Handle custom category
+        $category = $this->request->getPost('category');
+        if ($category === 'custom') {
+            $category = $this->request->getPost('custom_category');
+        }
+
         $this->projectModel->save([
             'title' => $this->request->getPost('title'),
             'description' => $this->request->getPost('description'),
-            'category' => $this->request->getPost('category'),
+            'category' => $category,
             'client_name' => $this->request->getPost('client_name'),
             'image' => $fileName,
-            'completed_date' => $this->request->getPost('completed_date') ?: null
+            'completed_date' => $this->request->getPost('completed_date') ?: null,
+            'product_details' => $this->request->getPost('product_details'),
+            'badge_text' => $this->request->getPost('badge_text')
         ]);
 
         return redirect()->to(site_url('admin/projects'))->with('success', 'Proyek berhasil ditambahkan.');
@@ -111,13 +119,21 @@ class Projects extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
+        // Handle custom category
+        $category = $this->request->getPost('category');
+        if ($category === 'custom') {
+            $category = $this->request->getPost('custom_category');
+        }
+
         $data = [
             'id' => $id,
             'title' => $this->request->getPost('title'),
             'description' => $this->request->getPost('description'),
-            'category' => $this->request->getPost('category'),
+            'category' => $category,
             'client_name' => $this->request->getPost('client_name'),
-            'completed_date' => $this->request->getPost('completed_date') ?: null
+            'completed_date' => $this->request->getPost('completed_date') ?: null,
+            'product_details' => $this->request->getPost('product_details'),
+            'badge_text' => $this->request->getPost('badge_text')
         ];
 
         $file = $this->request->getFile('image');

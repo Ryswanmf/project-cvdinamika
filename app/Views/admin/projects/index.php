@@ -39,9 +39,7 @@
                                 </small>
                             </td>
                             <td>
-                                <span class="badge bg-info bg-opacity-10 text-info rounded-pill px-3">
-                                    <?= esc($project['category']) ?>
-                                </span>
+                                <?= esc($project['category']) ?>
                             </td>
                             <td>
                                 <?= esc($project['client_name'] ?? '-') ?>

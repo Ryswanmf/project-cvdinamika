@@ -12,7 +12,7 @@ $routes->get('portofolio', 'Home::portfolio');
 $routes->get('/produk', 'Home::products');
 $routes->get('/produk/detail/(:num)', 'Home::productDetail/$1');
 $routes->get('/blog', 'Home::blog');
-$routes->get('/blog/detail/(:segment)', 'Home::blogDetail/$1');
+$routes->get('/blog/(:segment)', 'Home::blogDetail/$1');
 $routes->get('/kontak', 'Home::contact');
 $routes->post('/kontak/send', 'Home::sendMessage');
 

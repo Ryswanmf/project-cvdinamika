@@ -21,24 +21,72 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="category" class="form-label">Kategori</label>
+                            <?php 
+                            $defaultCategories = ['Klinik', 'Rumah Sakit', 'Institut Pendidikan', 'Area Olahraga', 'Commercial', 'Healthy Care'];
+                            $currentCategory = old('category', $project['category']);
+                            $isCustomCategory = !in_array($currentCategory, $defaultCategories) && !empty($currentCategory);
+                            ?>
                             <select class="form-select <?= $validation->hasError('category') ? 'is-invalid' : '' ?>" id="category" name="category" required>
                                 <option value="">Pilih Kategori...</option>
-                                <option value="Rumah Tinggal" <?= (old('category', $project['category']) == 'Rumah Tinggal') ? 'selected' : '' ?>>Rumah Tinggal</option>
-                                <option value="Kantor" <?= (old('category', $project['category']) == 'Kantor') ? 'selected' : '' ?>>Kantor</option>
-                                <option value="Komersial" <?= (old('category', $project['category']) == 'Komersial') ? 'selected' : '' ?>>Komersial</option>
-                                <option value="Renovasi" <?= (old('category', $project['category']) == 'Renovasi') ? 'selected' : '' ?>>Renovasi</option>
+                                <option value="Klinik" <?= ($currentCategory == 'Klinik') ? 'selected' : '' ?>>Klinik</option>
+                                <option value="Rumah Sakit" <?= ($currentCategory == 'Rumah Sakit') ? 'selected' : '' ?>>Rumah Sakit</option>
+                                <option value="Institut Pendidikan" <?= ($currentCategory == 'Institut Pendidikan') ? 'selected' : '' ?>>Institut Pendidikan</option>
+                                <option value="Area Olahraga" <?= ($currentCategory == 'Area Olahraga') ? 'selected' : '' ?>>Area Olahraga</option>
+                                <option value="Commercial" <?= ($currentCategory == 'Commercial') ? 'selected' : '' ?>>Commercial</option>
+                                <option value="Healthy Care" <?= ($currentCategory == 'Healthy Care') ? 'selected' : '' ?>>Healthy Care</option>
+                                <option value="custom" <?= $isCustomCategory ? 'selected' : '' ?>>+ Kategori Baru</option>
                             </select>
                             <div class="invalid-feedback"><?= $validation->getError('category') ?></div>
+                            
+                            <!-- Custom Category Input -->
+                            <div id="customCategoryWrapper" style="display: <?= $isCustomCategory ? 'block' : 'none' ?>;" class="mt-2">
+                                <input type="text" class="form-control" id="custom_category" name="custom_category" value="<?= $isCustomCategory ? old('custom_category', $currentCategory) : old('custom_category') ?>" placeholder="Masukkan kategori baru...">
+                                <small class="text-muted">Masukkan nama kategori baru Anda</small>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="client_name" class="form-label">Nama Klien</label>
-                            <input type="text" class="form-control" id="client_name" name="client_name" value="<?= old('client_name', $project['client_name']) ?>">
+                            <label for="badge_text" class="form-label">Teks Badge</label>
+                            <input type="text" class="form-control" id="badge_text" name="badge_text" value="<?= old('badge_text', $project['badge_text'] ?? '') ?>" placeholder="Contoh: Klinik, RSUD, Universitas">
+                            <small class="text-muted">Badge yang ditampilkan di pojok gambar</small>
                         </div>
+                    </div>
+                    
+                    <script>
+                        document.getElementById('category').addEventListener('change', function() {
+                            var customWrapper = document.getElementById('customCategoryWrapper');
+                            var customInput = document.getElementById('custom_category');
+                            
+                            if (this.value === 'custom') {
+                                customWrapper.style.display = 'block';
+                                customInput.required = true;
+                            } else {
+                                customWrapper.style.display = 'none';
+                                customInput.required = false;
+                                customInput.value = '';
+                            }
+                        });
+                        
+                        // Check on page load if custom was selected
+                        if (document.getElementById('category').value === 'custom') {
+                            document.getElementById('customCategoryWrapper').style.display = 'block';
+                            document.getElementById('custom_category').required = true;
+                        }
+                    </script>
+
+                    <div class="mb-3">
+                        <label for="client_name" class="form-label">Nama Klien/Lokasi</label>
+                        <input type="text" class="form-control" id="client_name" name="client_name" value="<?= old('client_name', $project['client_name']) ?>" placeholder="Contoh: RS Orthopedi Siaga Raya">
                     </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description" rows="3"><?= old('description', $project['description']) ?></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="product_details" class="form-label">Detail Produk yang Digunakan</label>
+                        <textarea class="form-control" id="product_details" name="product_details" rows="4" placeholder="Masukkan detail produk, satu per baris. Contoh:&#10;Gerflor Mipolam Ambiance Ultra - 0043&#10;LG Hausys Origin - 1203"><?= old('product_details', $project['product_details'] ?? '') ?></textarea>
+                        <small class="text-muted">Masukkan detail produk, satu produk per baris</small>
                     </div>
 
                     <div class="mb-3">

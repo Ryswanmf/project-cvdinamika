@@ -1,15 +1,117 @@
 <?= $this->include('landing-page/layout/header') ?>
 
+<style>
+/* Page Title Enhancement */
+.page-title-box {
+    background: linear-gradient(135deg, #14756E 0%, #1a9187 100%);
+    color: white;
+    padding: 80px 0 60px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    background-size: cover;
+    background-position: bottom;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-title-box .container {
+    position: relative;
+    z-index: 1;
+}
+
+.breadcrumb-item a {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.page-title-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .page-title-box {
+        padding: 60px 0 40px;
+    }
+    
+    .page-title-main {
+        font-size: 2.5rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title-box {
+        padding: 50px 0 30px;
+        margin-bottom: 40px;
+    }
+    
+    .page-title-main {
+        font-size: 2rem;
+    }
+    
+    .page-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title-box {
+        padding: 40px 0 25px;
+        margin-bottom: 30px;
+    }
+    
+    .page-title-main {
+        font-size: 1.75rem;
+    }
+    
+    .page-subtitle {
+        font-size: 0.9rem;
+    }
+}
+</style>
+
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-4 mb-4 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-4">
-            <h1 class="display-2 text-primary mb-4 animated slideInDown">Tentang Kami</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Tentang Kami</li>
-                </ol>
-            </nav>
+    <div class="page-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title-main animated slideInDown">Tentang Kami</h1>
+                    <p class="page-subtitle">Mengenal Lebih Dekat CV Dinamika Inti</p>
+                    <nav aria-label="breadcrumb" class="mt-4">
+                        <ol class="breadcrumb justify-content-center mb-0 bg-transparent">
+                            <li class="breadcrumb-item"><a href="<?= base_url('/') ?>" class="text-white text-decoration-none">Beranda</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Tentang Kami</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Page Header End -->

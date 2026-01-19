@@ -12,7 +12,7 @@ class ProjectModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'description', 'category', 'image', 'client_name', 'completed_date'];
+    protected $allowedFields    = ['title', 'description', 'category', 'image', 'client_name', 'completed_date', 'product_details', 'badge_text'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

@@ -37,9 +37,7 @@
                                 <small class="text-muted"><?= $blog['created_at'] ?></small>
                             </td>
                             <td>
-                                <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill px-3">
-                                    <?= esc($blog['category']) ?>
-                                </span>
+                                <?= esc($blog['category']) ?>
                             </td>
                             <td><?= esc($blog['author']) ?></td>
                             <td class="text-end pe-4">

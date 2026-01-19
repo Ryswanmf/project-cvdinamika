@@ -14,6 +14,7 @@
                 <thead class="bg-light text-muted">
                     <tr>
                         <th class="ps-4 py-3">Nama Pelanggan</th>
+                        <th class="py-3">Status</th>
                         <th class="py-3">Pesan</th>
                         <th class="py-3">Rating</th>
                         <th class="py-3 text-end pe-4">Aksi</th>
@@ -22,7 +23,7 @@
                 <tbody>
                     <?php if(empty($testimonials)): ?>
                         <tr>
-                            <td colspan="4" class="text-center py-5 text-muted">Belum ada testimonial.</td>
+                            <td colspan="5" class="text-center py-5 text-muted">Belum ada testimonial.</td>
                         </tr>
                     <?php else: ?>
                         <?php foreach($testimonials as $testi): ?>
@@ -43,6 +44,15 @@
                                 </div>
                             </td>
                             <td>
+                                <?php if(($testi['status'] ?? 'approved') == 'pending'): ?>
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                <?php elseif(($testi['status'] ?? 'approved') == 'rejected'): ?>
+                                    <span class="badge bg-danger">Ditolak</span>
+                                <?php else: ?>
+                                    <span class="badge bg-success">Aktif</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
                                 <small class="text-muted fst-italic">"<?= character_limiter(esc($testi['message']), 60) ?>"</small>
                             </td>
                             <td>
@@ -53,6 +63,16 @@
                                 </div>
                             </td>
                             <td class="text-end pe-4">
+                                <?php if(($testi['status'] ?? 'approved') == 'pending'): ?>
+                                    <a href="<?= site_url('admin/testimonial/approve/'.$testi['id']) ?>" 
+                                       class="btn btn-sm btn-success me-1" title="Setujui">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="<?= site_url('admin/testimonial/reject/'.$testi['id']) ?>" 
+                                       class="btn btn-sm btn-warning me-1" title="Tolak">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                <?php endif; ?>
                                 <a href="<?= site_url('admin/testimonial/delete/'.$testi['id']) ?>" 
                                    class="btn btn-sm btn-outline-danger" 
                                    onclick="return confirm('Yakin ingin menghapus testimonial ini?')" title="Hapus">

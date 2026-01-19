@@ -15,6 +15,12 @@ $routes->get('/blog', 'Home::blog');
 $routes->get('/blog/(:segment)', 'Home::blogDetail/$1');
 $routes->get('/kontak', 'Home::contact');
 $routes->post('/kontak/send', 'Home::sendMessage');
+$routes->post('/kontak/sendTestimonial', 'Home::sendTestimonial');
+$routes->get('/search', 'Search::index');
+$routes->get('/faq', 'Home::faq');
+
+// Sitemap
+$routes->get('sitemap.xml', 'Sitemap::index');
 
 // Auth Routes
 $routes->get('login', 'Login::index');
@@ -25,8 +31,25 @@ $routes->get('logout', 'Login::logout');
 $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'Admin::index');
     $routes->get('logout', 'Login::logout');
+    
+    // Settings
     $routes->get('settings', 'Admin\Settings::index');
     $routes->post('settings/update', 'Admin\Settings::update');
+    $routes->post('settings/update_account', 'Admin\Settings::update_account');
+
+    // Banner
+    $routes->get('banner', 'Admin\Banner::index');
+    $routes->get('banner/create', 'Admin\Banner::create');
+    $routes->post('banner/store', 'Admin\Banner::store');
+    $routes->get('banner/delete/(:num)', 'Admin\Banner::delete/$1');
+
+    // FAQ
+    $routes->get('faq', 'Admin\Faq::index');
+    $routes->get('faq/create', 'Admin\Faq::create');
+    $routes->post('faq/store', 'Admin\Faq::store');
+    $routes->get('faq/edit/(:num)', 'Admin\Faq::edit/$1');
+    $routes->post('faq/update/(:num)', 'Admin\Faq::update/$1');
+    $routes->get('faq/delete/(:num)', 'Admin\Faq::delete/$1');
 
     // Projects
     $routes->get('projects', 'Admin\Projects::index');
@@ -72,7 +95,12 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('testimonial', 'Admin\Testimonial::index');
     $routes->get('testimonial/create', 'Admin\Testimonial::create');
     $routes->post('testimonial/store', 'Admin\Testimonial::store');
+    $routes->get('testimonial/approve/(:num)', 'Admin\Testimonial::approve/$1');
+    $routes->get('testimonial/reject/(:num)', 'Admin\Testimonial::reject/$1');
     $routes->get('testimonial/delete/(:num)', 'Admin\Testimonial::delete/$1');
+
+    // System
+    $routes->get('backup', 'Admin\Backup::index');
 });
 
 // Redirect /admin/login to /login for consistency

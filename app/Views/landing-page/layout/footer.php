@@ -27,6 +27,8 @@
                     <a class="btn btn-link" href="/portofolio">Portofolio</a>
                     <a class="btn btn-link" href="/blog">Blog</a>
                     <a class="btn btn-link" href="/kontak">Kontak</a>
+                    <a class="btn btn-link" href="/faq">FAQ (Tanya Jawab)</a>
+                    <a class="btn btn-link" href="/sitemap.xml">Sitemap</a>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Our Services</h5>
@@ -55,6 +57,83 @@
     <!-- Back to Top -->
     <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- WhatsApp Floating Button -->
+    <?php
+        // Helper logic to format phone number for WhatsApp link
+        $rawPhone = $settings['contact_phone'] ?? '081319740808';
+        // Remove non-numeric characters
+        $cleanPhone = preg_replace('/[^0-9]/', '', $rawPhone);
+        
+        // Ensure it starts with 62
+        if (substr($cleanPhone, 0, 1) == '0') {
+            $waPhone = '62' . substr($cleanPhone, 1);
+        } elseif (substr($cleanPhone, 0, 2) != '62') {
+            $waPhone = '62' . $cleanPhone;
+        } else {
+            $waPhone = $cleanPhone;
+        }
+        
+        $waMessage = "Halo, saya tertarik dengan produk dan layanan CV Dinamika.";
+        $waLink = "https://wa.me/{$waPhone}?text=" . urlencode($waMessage);
+    ?>
+
+    <style>
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 90px; /* Above back-to-top button */
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse-wa 2s infinite;
+        }
+
+        .float-wa:hover {
+            background-color: #128c7e;
+            color: #FFF;
+            transform: scale(1.1);
+        }
+
+        .my-float {
+            margin-top: 2px;
+        }
+
+        @keyframes pulse-wa {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .float-wa {
+                width: 50px;
+                height: 50px;
+                bottom: 80px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
+    </style>
+    
+    <a href="<?= $waLink ?>" class="float-wa" target="_blank" title="Chat via WhatsApp">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
 
     <!-- JavaScript Libraries -->
     <script src="js/jquery.min.js"></script>

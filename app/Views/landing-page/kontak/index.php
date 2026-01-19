@@ -182,4 +182,123 @@
     </div>
     <!-- Contact End -->
 
+    <!-- Contact End -->
+
+    <!-- Testimonial Form Start -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-white p-5 rounded shadow-sm border">
+                        <div class="text-center mb-4">
+                            <h2 class="mb-3">Kirim Ulasan Anda</h2>
+                            <p class="text-muted">Puas dengan layanan kami? Bagikan pengalaman Anda!</p>
+                        </div>
+
+                        <?php if (session()->getFlashdata('success_testi')): ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('success_testi') ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (session()->getFlashdata('error_testi')): ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('error_testi') ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
+
+                        <form action="<?= site_url('kontak/sendTestimonial') ?>" method="post" enctype="multipart/form-data">
+                            <?= csrf_field() ?>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="testi_name" name="name" placeholder="Nama Anda" required>
+                                        <label for="testi_name">Nama Anda</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="position" name="position" placeholder="Pekerjaan / Perusahaan (Opsional)">
+                                        <label for="position">Pekerjaan / Perusahaan (Opsional)</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label mb-2">Rating Kepuasan</label>
+                                    <div class="rating-css">
+                                        <div class="star-icon">
+                                            <input type="radio" name="rating" value="5" id="rating5" checked>
+                                            <label for="rating5" class="fa fa-star"></label>
+                                            <input type="radio" name="rating" value="4" id="rating4">
+                                            <label for="rating4" class="fa fa-star"></label>
+                                            <input type="radio" name="rating" value="3" id="rating3">
+                                            <label for="rating3" class="fa fa-star"></label>
+                                            <input type="radio" name="rating" value="2" id="rating2">
+                                            <label for="rating2" class="fa fa-star"></label>
+                                            <input type="radio" name="rating" value="1" id="rating1">
+                                            <label for="rating1" class="fa fa-star"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Tulis ulasan Anda" id="testi_message" name="message" style="height: 100px" required></textarea>
+                                        <label for="testi_message">Ulasan Anda</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="testi_image" class="form-label">Foto Profil (Opsional)</label>
+                                    <input type="file" class="form-control" id="testi_image" name="image" accept="image/*">
+                                </div>
+
+                                <div class="col-12 text-center mt-4">
+                                    <button class="btn btn-primary py-3 px-5 rounded-pill" type="submit">Kirim Ulasan</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .rating-css div {
+            color: #ffe400;
+            font-size: 30px;
+            font-family: sans-serif;
+            font-weight: 800;
+            text-align: left;
+            text-transform: uppercase;
+            padding: 10px 0;
+        }
+        .rating-css input {
+            display: none;
+        }
+        .rating-css input + label {
+            font-size: 30px;
+            text-shadow: 1px 1px 0 #8f8420;
+            cursor: pointer;
+        }
+        .rating-css input:checked + label ~ label {
+            color: #b4b4b4;
+        }
+        .rating-css label:active {
+            transform: scale(0.8);
+            transition: 0.3s all;
+        }
+        
+        /* Flex reverse to make stars fill from left on hover logic (simple version here uses checked) */
+        .star-icon {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    </style>
+
 <?= $this->include('landing-page/layout/footer') ?>

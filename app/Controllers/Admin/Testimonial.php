@@ -19,9 +19,22 @@ class Testimonial extends BaseController
         $data = [
             'title' => 'Daftar Testimonial',
             'page_title' => 'Manajemen Testimonial',
-            'testimonials' => $this->testimonialModel->findAll()
+            // Tampilkan pending paling atas
+            'testimonials' => $this->testimonialModel->orderBy('status', 'ASC')->orderBy('created_at', 'DESC')->findAll()
         ];
         return view('admin/testimonial/index', $data);
+    }
+    
+    public function approve($id)
+    {
+        $this->testimonialModel->update($id, ['status' => 'approved']);
+        return redirect()->back()->with('success', 'Testimonial berhasil disetujui.');
+    }
+
+    public function reject($id)
+    {
+        $this->testimonialModel->update($id, ['status' => 'rejected']);
+        return redirect()->back()->with('success', 'Testimonial ditolak (disembunyikan).');
     }
 
     public function create()

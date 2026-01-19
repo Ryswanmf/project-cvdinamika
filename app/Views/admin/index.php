@@ -64,6 +64,91 @@
         </div>
     </div>
 
+    <!-- Visitor Stats -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4 d-flex align-items-center">
+                    <div class="btn-square bg-primary bg-opacity-10 rounded p-3 me-3">
+                        <i class="fas fa-users fa-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-muted text-uppercase small fw-bold mb-1">Total Pengunjung</h6>
+                        <h3 class="fw-bold mb-0"><?= number_format($visitors_total) ?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4 d-flex align-items-center">
+                    <div class="btn-square bg-success bg-opacity-10 rounded p-3 me-3">
+                        <i class="fas fa-user-clock fa-2x text-success"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-muted text-uppercase small fw-bold mb-1">Pengunjung Hari Ini</h6>
+                        <h3 class="fw-bold mb-0"><?= number_format($visitors_today) ?></h3>
+                        <small class="text-success"><i class="fas fa-level-up-alt"></i> Active Now</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4 d-flex align-items-center">
+                    <div class="btn-square bg-info bg-opacity-10 rounded p-3 me-3">
+                        <i class="fas fa-history fa-2x text-info"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-muted text-uppercase small fw-bold mb-1">Pengunjung Kemarin</h6>
+                        <h3 class="fw-bold mb-0"><?= number_format($visitors_yesterday) ?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <!-- Chart Section -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white py-3 border-0">
+                    <h5 class="mb-0 fw-bold"><i class="fas fa-chart-line me-2 text-primary"></i>Statistik Kunjungan (7 Hari Terakhir)</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 300px;">
+                        <canvas id="visitorChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white py-3 border-0">
+                    <h5 class="mb-0 fw-bold"><i class="fas fa-bolt me-2 text-warning"></i>Aksi Cepat</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="<?= site_url('admin/produk/create') ?>" class="btn btn-outline-primary text-start p-3 rounded-3">
+                            <i class="fas fa-plus-circle me-2"></i> Tambah Produk Baru
+                        </a>
+                        <a href="<?= site_url('admin/blog/create') ?>" class="btn btn-outline-success text-start p-3 rounded-3">
+                            <i class="fas fa-edit me-2"></i> Tulis Artikel Blog
+                        </a>
+                        <a href="<?= site_url('admin/projects/create') ?>" class="btn btn-outline-info text-start p-3 rounded-3">
+                            <i class="fas fa-project-diagram me-2"></i> Tambah Portofolio
+                        </a>
+                        <a href="<?= site_url('admin/settings') ?>" class="btn btn-outline-secondary text-start p-3 rounded-3">
+                            <i class="fas fa-cog me-2"></i> Pengaturan Situs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Recent Messages -->
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white py-3 border-0">
@@ -118,4 +203,55 @@
             </div>
         </div>
     </div>
+
+    <!-- Chart Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('visitorChart').getContext('2d');
+        
+        // Gradient fill
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(13, 110, 253, 0.2)');   
+        gradient.addColorStop(1, 'rgba(13, 110, 253, 0)');
+
+        const visitorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [<?= '"' . implode('","', array_column($chart_data, 'date')) . '"' ?>],
+                datasets: [{
+                    label: 'Pengunjung',
+                    data: [<?= implode(',', array_column($chart_data, 'count')) ?>],
+                    borderColor: '#0d6efd',
+                    backgroundColor: gradient,
+                    borderWidth: 2,
+                    tension: 0.4, // Smooth curve
+                    fill: true,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: '#0d6efd',
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            borderDash: [5, 5]
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 <?= $this->endSection() ?>

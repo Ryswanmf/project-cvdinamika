@@ -3,10 +3,24 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?= $settings['site_title'] ?? 'CV Dinamika' ?></title>
+    <title><?= (isset($title) ? $title . ' | ' : '') . ($settings['site_title'] ?? 'CV Dinamika') ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="<?= $settings['site_description'] ?? '' ?>" name="description">
+    <meta content="<?= $meta_description ?? $settings['site_description'] ?? '' ?>" name="description">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= current_url() ?>">
+    <meta property="og:title" content="<?= (isset($title) ? $title . ' | ' : '') . ($settings['site_title'] ?? 'CV Dinamika') ?>">
+    <meta property="og:description" content="<?= $meta_description ?? $settings['site_description'] ?? '' ?>">
+    <meta property="og:image" content="<?= $og_image ?? base_url('img/logo_dinamikainti.png') ?>">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<?= current_url() ?>">
+    <meta property="twitter:title" content="<?= (isset($title) ? $title . ' | ' : '') . ($settings['site_title'] ?? 'CV Dinamika') ?>">
+    <meta property="twitter:description" content="<?= $meta_description ?? $settings['site_description'] ?? '' ?>">
+    <meta property="twitter:image" content="<?= $og_image ?? base_url('img/logo_dinamikainti.png') ?>">
 
     <!-- Favicon -->
     <link href="<?= base_url('img/logo%20dinamikainti%202.jpeg?v=2') ?>" rel="icon" type="image/jpeg">
@@ -51,6 +65,13 @@
             margin: 0;
         }
     </style>
+
+    <!-- Schema.org JSON-LD -->
+    <?php if (isset($schema)): ?>
+    <script type="application/ld+json">
+        <?= json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?>
+    </script>
+    <?php endif; ?>
 </head>
 
 <body>
@@ -79,6 +100,7 @@
                         <a href="/blog" class="nav-item nav-link <?= (strpos(uri_string(), 'blog') !== false) ? 'active' : '' ?>">Blog</a>
                         <a href="/kontak" class="nav-item nav-link <?= (uri_string() == 'kontak') ? 'active' : '' ?>">Kontak</a>  
                         <a href="/tentang-kami" class="nav-item nav-link <?= (uri_string() == 'tentang-kami') ? 'active' : '' ?>">Tentang Kami</a>
+                        <a href="/search" class="nav-item nav-link" title="Pencarian"><i class="fas fa-search"></i></a>
                     </div>
                 </div>
             </nav>

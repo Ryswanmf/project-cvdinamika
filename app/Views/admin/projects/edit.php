@@ -85,8 +85,7 @@
 
                     <div class="mb-3">
                         <label for="product_details" class="form-label">Detail Produk yang Digunakan</label>
-                        <textarea class="form-control" id="product_details" name="product_details" rows="4" placeholder="Masukkan detail produk, satu per baris. Contoh:&#10;Gerflor Mipolam Ambiance Ultra - 0043&#10;LG Hausys Origin - 1203"><?= old('product_details', $project['product_details'] ?? '') ?></textarea>
-                        <small class="text-muted">Masukkan detail produk, satu produk per baris</small>
+                        <textarea class="form-control" id="product_details" name="product_details" rows="4" placeholder="Masukkan detail produk..."><?= old('product_details', $project['product_details'] ?? '') ?></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -114,4 +113,27 @@
         </div>
     </div>
 </div>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#product_details').summernote({
+            placeholder: 'Masukkan detail produk yang digunakan...',
+            tabsize: 2,
+            height: 200,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'table']],
+                ['view', ['fullscreen', 'codeview']]
+            ]
+        });
+    });
+</script>
 <?= $this->endSection() ?>

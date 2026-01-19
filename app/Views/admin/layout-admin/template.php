@@ -114,5 +114,6 @@
 
     <!-- Use local Bootstrap JS from public/js -->
     <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
+    <?= $this->renderSection('scripts') ?>
 </body>
 </html>

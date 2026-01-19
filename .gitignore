@@ -124,3 +124,11 @@ _modules/*
 
 /results/
 /phpunit*.xml
+
+#-------------------------
+# User Uploads (Ignore content, keep structure)
+#-------------------------
+public/uploads/*
+!public/uploads/index.html
+!public/uploads/.gitkeep
+

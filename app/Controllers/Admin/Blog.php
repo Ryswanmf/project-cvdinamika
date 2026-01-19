@@ -12,6 +12,7 @@ class Blog extends BaseController
     public function __construct()
     {
         $this->blogModel = new BlogModel();
+        helper('image');
     }
 
     public function index()
@@ -40,14 +41,17 @@ class Blog extends BaseController
             'title' => 'required|min_length[5]',
             'category' => 'required',
             'content' => 'required',
-            'image' => 'uploaded[image]|max_size[image,2048]|is_image[image]'
+            'image' => 'uploaded[image]|max_size[image,5120]|is_image[image]'
         ])) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
         $file = $this->request->getFile('image');
         $fileName = $file->getRandomName();
-        $file->move('uploads/blog', $fileName);
+        
+        // Compress image
+        $uploadPath = 'uploads/blog';
+        upload_and_compress($file, $uploadPath, $fileName, 80, 1024);
 
         $slug = url_title($this->request->getPost('title'), '-', true);
 
@@ -89,7 +93,7 @@ class Blog extends BaseController
         ];
 
         if ($this->request->getFile('image')->isValid()) {
-            $rules['image'] = 'uploaded[image]|max_size[image,2048]|is_image[image]';
+            $rules['image'] = 'uploaded[image]|max_size[image,5120]|is_image[image]';
         }
 
         if (!$this->validate($rules)) {
@@ -112,7 +116,11 @@ class Blog extends BaseController
                 unlink('uploads/blog/' . $blog['image']);
             }
             $fileName = $file->getRandomName();
-            $file->move('uploads/blog', $fileName);
+            
+            // Compress image
+            $uploadPath = 'uploads/blog';
+            upload_and_compress($file, $uploadPath, $fileName, 80, 1024);
+            
             $data['image'] = $fileName;
         }
 

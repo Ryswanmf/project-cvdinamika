@@ -106,8 +106,8 @@
                             <!-- Spesifikasi -->
                             <div class="tab-pane fade" id="pills-spec" role="tabpanel">
                                 <h4 class="mb-4">Detail Spesifikasi</h4>
-                                <div class="bg-white p-4 rounded border">
-                                    <?= nl2br(esc($product['details'] ?? 'Belum ada detail spesifikasi.')) ?>
+                                <div class="bg-white p-4 rounded border product-content-area">
+                                    <?= $product['details'] ?? '<p class="text-muted">Belum ada detail spesifikasi.</p>' ?>
                                 </div>
                             </div>
                         </div>

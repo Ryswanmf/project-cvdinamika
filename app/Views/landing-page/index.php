@@ -5,16 +5,33 @@
         <div class="container py-5">
             <div class="row g-5 align-items-center mb-5">
                 <div class="col-lg-6">
-                    <h1 class="display-1 mb-4"><?= $settings['site_title'] ?? 'CV Dinamika Inti' ?> <span class="text-primary"></span>
+                    <?php 
+                    $heroTitle = $settings['site_title'] ?? 'CV Dinamika Inti';
+                    $heroSubtitle = '"SELALU MELAKUKAN YANG TERBAIK , UNTUK MENJADI YANG TERBAIK"';
+                    
+                    if (!empty($banners) && !empty($banners[0]['title'])) {
+                        $heroTitle = $banners[0]['title'];
+                    }
+                    if (!empty($banners) && !empty($banners[0]['subtitle'])) {
+                        $heroSubtitle = $banners[0]['subtitle'];
+                    }
+                    ?>
+                    <h1 class="display-1 mb-4"><?= $heroTitle ?> <span class="text-primary"></span>
                         Ada Untuk Anda.</h1>
                     <h6 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
-                        "SELALU MELAKUKAN YANG TERBAIK , UNTUK MENJADI YANG TERBAIK"</h6>
+                        <?= $heroSubtitle ?></h6>
                 </div>
                 <div class="col-lg-6">
                     <div class="owl-carousel header-carousel animated fadeIn">
-                        <img class="img-fluid" src="img/vinyl1.jpg" alt="" width="800" height="600" fetchpriority="high">
-                        <img class="img-fluid" src="img/vinyl2.jpg" alt="" width="800" height="600">
-                        <img class="img-fluid" src="img/vinyl3.jpg" alt="" width="800" height="600">
+                        <?php if(!empty($banners)): ?>
+                            <?php foreach($banners as $banner): ?>
+                                <img class="img-fluid" src="<?= base_url('uploads/banners/'.$banner['image']) ?>" alt="<?= esc($banner['title']) ?>" width="800" height="600">
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <img class="img-fluid" src="img/vinyl1.jpg" alt="" width="800" height="600" fetchpriority="high">
+                            <img class="img-fluid" src="img/vinyl2.jpg" alt="" width="800" height="600">
+                            <img class="img-fluid" src="img/vinyl3.jpg" alt="" width="800" height="600">
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

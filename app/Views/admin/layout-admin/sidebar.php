@@ -21,6 +21,9 @@
                     <a href="/admin/testimonial" class="nav-link <?= strpos(uri_string(), 'admin/testimonial') !== false ? 'active' : '' ?>"><i class="fas fa-star me-2"></i>Testimonial</a>
                 </li>
                 <li class="nav-item mb-2">
+                    <a href="/admin/faq" class="nav-link <?= strpos(uri_string(), 'admin/faq') !== false ? 'active' : '' ?>"><i class="fas fa-question-circle me-2"></i>FAQ</a>
+                </li>
+                <li class="nav-item mb-2">
                     <a href="/admin/kontak" class="nav-link <?= strpos(uri_string(), 'admin/kontak') !== false ? 'active' : '' ?>"><i class="fas fa-envelope me-2"></i>Kontak</a>
                 </li>
                 <li class="nav-item mb-2">
@@ -28,6 +31,12 @@
                 </li>
                 <li class="nav-item mb-2">
                     <a href="/admin/settings" class="nav-link <?= strpos(uri_string(), 'admin/settings') !== false ? 'active' : '' ?>"><i class="fas fa-cog me-2"></i>Pengaturan</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/banner" class="nav-link <?= strpos(uri_string(), 'admin/banner') !== false ? 'active' : '' ?>"><i class="fas fa-images me-2"></i>Banner Depan</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/backup" class="nav-link text-danger" onclick="return confirm('Download backup database sekarang?')"><i class="fas fa-database me-2"></i>Backup Database</a>
                 </li>
                 <li class="nav-item mb-2">
                     <a href="/" class="nav-link"><i class="fas fa-home me-2"></i>Kembali ke Situs</a>

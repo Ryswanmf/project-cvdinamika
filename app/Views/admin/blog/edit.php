@@ -34,14 +34,6 @@
                     <div class="mb-3">
                         <label for="content" class="form-label">Isi Artikel</label>
                         <textarea class="form-control" id="content" name="content" rows="15" required><?= old('content', $blog['content']) ?></textarea>
-                        <div class="form-text">
-                            <strong>Panduan Format:</strong><br>
-                            - Untuk judul section: <code>&lt;h3&gt;Judul Section&lt;/h3&gt;</code><br>
-                            - Untuk paragraf: <code>&lt;p&gt;Isi paragraf...&lt;/p&gt;</code><br>
-                            - Untuk list: <code>&lt;ol&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;/ol&gt;</code><br>
-                            - Untuk bold: <code>&lt;strong&gt;teks tebal&lt;/strong&gt;</code><br>
-                            - Untuk italic: <code>&lt;em&gt;teks miring&lt;/em&gt;</code>
-                        </div>
                     </div>
 
                     <div class="mb-4">
@@ -72,11 +64,30 @@
     </div>
 </div>
 
-<style>
-#content {
-    font-family: 'Courier New', monospace;
-    font-size: 0.95rem;
-}
-</style>
+<?= $this->endSection() ?>
 
+<?= $this->section('scripts') ?>
+<!-- Summernote CSS/JS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#content').summernote({
+            placeholder: 'Tulis isi artikel Anda di sini...',
+            tabsize: 2,
+            height: 400,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    });
+</script>
 <?= $this->endSection() ?>

@@ -4,13 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TestimonialModel extends Model
+class FaqModel extends Model
 {
-    protected $table            = 'testimonials';
+    protected $table            = 'faqs';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['name', 'position', 'message', 'image', 'rating', 'status'];
+    protected $allowedFields    = ['question', 'answer', 'sort_order'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';

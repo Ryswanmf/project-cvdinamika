@@ -12,6 +12,7 @@ class Produk extends BaseController
     public function __construct()
     {
         $this->productModel = new ProductModel();
+        helper('image');
     }
 
     public function index()
@@ -65,7 +66,7 @@ class Produk extends BaseController
                 'label' => 'Harga'
             ],
             'image' => [
-                'rules' => 'uploaded[image]|max_size[image,2048]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[image]|max_size[image,5120]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'label' => 'Gambar'
             ]
         ])) {
@@ -74,7 +75,11 @@ class Produk extends BaseController
 
         $fileImage = $this->request->getFile('image');
         $imageName = $fileImage->getRandomName();
-        $fileImage->move('uploads/products', $imageName);
+        
+        // Use helper function to compress image
+        // Path relative to index.php (FCPATH)
+        $uploadPath = 'uploads/products';
+        upload_and_compress($fileImage, $uploadPath, $imageName, 80, 1000);
 
         $this->productModel->save([
             'name' => $this->request->getPost('name'),
@@ -129,7 +134,7 @@ class Produk extends BaseController
         // Validasi gambar hanya jika ada file yang diupload
         if ($this->request->getFile('image')->isValid()) {
             $rules['image'] = [
-                'rules' => 'uploaded[image]|max_size[image,2048]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[image]|max_size[image,5120]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'label' => 'Gambar'
             ];
         }
@@ -155,7 +160,11 @@ class Produk extends BaseController
             }
             
             $imageName = $fileImage->getRandomName();
-            $fileImage->move('uploads/products', $imageName);
+            
+            // Use helper function to compress image
+            $uploadPath = 'uploads/products';
+            upload_and_compress($fileImage, $uploadPath, $imageName, 80, 1000);
+            
             $data['image'] = $imageName;
         }
 

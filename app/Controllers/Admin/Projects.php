@@ -12,6 +12,7 @@ class Projects extends BaseController
     public function __construct()
     {
         $this->projectModel = new ProjectModel();
+        helper('image');
     }
 
     public function index()
@@ -47,7 +48,7 @@ class Projects extends BaseController
                 'label' => 'Kategori'
             ],
             'image' => [
-                'rules' => 'uploaded[image]|max_size[image,2048]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[image]|max_size[image,5120]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'label' => 'Gambar Proyek'
             ]
         ])) {
@@ -56,7 +57,10 @@ class Projects extends BaseController
 
         $file = $this->request->getFile('image');
         $fileName = $file->getRandomName();
-        $file->move('uploads/projects', $fileName);
+        
+        // Compress image
+        $uploadPath = 'uploads/projects';
+        upload_and_compress($file, $uploadPath, $fileName, 80, 1024);
 
         // Handle custom category
         $category = $this->request->getPost('category');
@@ -110,7 +114,7 @@ class Projects extends BaseController
 
         if ($this->request->getFile('image')->isValid()) {
              $rules['image'] = [
-                'rules' => 'uploaded[image]|max_size[image,2048]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[image]|max_size[image,5120]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'label' => 'Gambar Proyek'
             ];
         }
@@ -144,7 +148,11 @@ class Projects extends BaseController
             }
 
             $fileName = $file->getRandomName();
-            $file->move('uploads/projects', $fileName);
+            
+            // Compress image
+            $uploadPath = 'uploads/projects';
+            upload_and_compress($file, $uploadPath, $fileName, 80, 1024);
+            
             $data['image'] = $fileName;
         }
 

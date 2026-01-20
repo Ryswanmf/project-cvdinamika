@@ -11,109 +11,179 @@
     <style>
         body {
             background-color: #f8f9fa;
+            overflow-x: hidden;
         }
         
         /* Sidebar Styling */
-        .sidebar {
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        }
-        .sidebar .nav-link {
-            border-radius: 8px;
-            margin-bottom: 5px;
-            padding: 10px 15px;
-            transition: all 0.3s;
-        }
-        .sidebar .nav-link:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateX(5px);
-        }
-        .sidebar .nav-link.active {
-            background-color: #0d6efd !important;
-            box-shadow: 0 4px 6px rgba(13, 110, 253, 0.4);
-            color: #ffffff !important;
-        }
-        .sidebar .nav-link.active i {
-            color: #ffffff !important;
+        #sidebar-wrapper {
+            min-height: 100vh;
+            margin-left: -250px;
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            position: fixed;
+            z-index: 1000;
+            width: 250px;
         }
 
-        /* Main Content */
-        .main-content {
-            padding: 30px;
-            overflow-y: auto;
-            height: 100vh;
+        #sidebar-wrapper .sidebar-heading {
+            padding: 1.5rem 1.25rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        #sidebar-wrapper .list-group {
+            width: 250px;
+        }
+
+        #page-content-wrapper {
+            min-width: 100vw;
+            padding-left: 0; 
+            padding-top: 20px;
+            transition: all 0.25s ease-out;
+        }
+
+        /* Toggled State */
+        body.sb-sidenav-toggled #sidebar-wrapper {
+            margin-left: 0;
+        }
+
+        /* Desktop View */
+        @media (min-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: 0;
+            }
+
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+                margin-left: 250px;
+            }
+
+            body.sb-sidenav-toggled #sidebar-wrapper {
+                margin-left: -250px;
+            }
+
+            body.sb-sidenav-toggled #page-content-wrapper {
+                margin-left: 0;
+            }
+        }
+
+        /* Nav Link Styling */
+        .sidebar .nav-link {
+            border-radius: 0;
+            padding: 12px 20px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #f8f9fa;
+            color: #14756E;
+        }
+        .sidebar .nav-link.active {
+            background-color: #f0fffe;
+            color: #14756E;
+            border-left-color: #14756E;
+            font-weight: 600;
+        }
+        .sidebar .nav-link i {
+            width: 25px;
+            margin-right: 10px;
         }
 
         /* Card Styling */
         .card {
             border: none;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s ease;
         }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c1c1c1; 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8; 
+        
+        /* Navbar Admin */
+        .admin-navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-radius: 12px;
         }
     </style>
 </head>
 <body>
-    <div class="d-flex">
-        <?= $this->include('admin/layout-admin/sidebar') ?>
 
-        <!-- Main Content -->
-        <div class="main-content flex-grow-1">
-            <!-- Header -->
-            <div class="d-flex justify-content-between align-items-center mb-5 bg-white p-4 rounded-3 shadow-sm">
-                <div>
-                    <h2 class="mb-0 fw-bold text-dark"><?= $page_title ?? 'Dashboard' ?></h2>
-                    <p class="text-muted mb-0 small">Overview & Statistik</p>
-                </div>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading text-primary">CV Dinamika Admin</div>
+            <?= $this->include('admin/layout-admin/sidebar') ?>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid px-4">
                 
-                <div class="d-flex align-items-center">
-                    <div class="me-4 text-end d-none d-md-block">
-                        <small class="text-muted d-block">Login sebagai</small>
-                        <span class="fw-bold text-dark"><?= session()->get('user_name') ?? 'Admin' ?></span>
+                <!-- Admin Navbar -->
+                <nav class="admin-navbar">
+                    <button class="btn btn-outline-primary btn-sm" id="menu-toggle">
+                        <i class="fas fa-bars"></i> Menu
+                    </button>
+                    
+                    <div class="d-flex align-items-center">
+                        <span class="me-3 d-none d-md-block text-muted">Halo, <strong><?= session()->get('user_name') ?? 'Admin' ?></strong></span>
+                        <a href="/logout" class="btn btn-sm btn-danger rounded-pill px-3">
+                            <i class="fas fa-sign-out-alt me-1"></i> Logout
+                        </a>
                     </div>
-                    <a href="/logout" class="btn btn-outline-danger rounded-pill px-4">
-                        Logout
-                    </a>
+                </nav>
+
+                <!-- Alerts -->
+                <?php if (session()->getFlashdata('success')): ?>
+                    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">
+                        <i class="fas fa-check-circle me-2"></i> <?= session()->getFlashdata('success') ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (session()->getFlashdata('error')): ?>
+                    <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i> <?= session()->getFlashdata('error') ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Page Title -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold text-dark mb-0"><?= $page_title ?? 'Dashboard' ?></h2>
                 </div>
+
+                <?= $this->renderSection('content') ?>
             </div>
-
-            <?php if (session()->getFlashdata('success')): ?>
-                <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">
-                    ✅ <?= session()->getFlashdata('success') ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif; ?>
-
-            <?php if (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0" role="alert">
-                    ⚠️ <?= session()->getFlashdata('error') ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif; ?>
-
-            <?= $this->renderSection('content') ?>
         </div>
     </div>
 
     <!-- Use local Bootstrap JS from public/js -->
     <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
+    <script>
+        // Toggle Sidebar Script
+        var menuToggle = document.getElementById("menu-toggle");
+        var wrapper = document.getElementById("wrapper");
+        
+        menuToggle.addEventListener("click", function(e) {
+            e.preventDefault();
+            document.body.classList.toggle("sb-sidenav-toggled");
+        });
+    </script>
     <?= $this->renderSection('scripts') ?>
 </body>
 </html>

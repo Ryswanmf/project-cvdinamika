@@ -3,9 +3,12 @@
 <style>
     /* Page Title Enhancement */
     .page-title-box {
-        background: linear-gradient(135deg, #14756E 0%, #1a9187 100%);
+        background: linear-gradient(135deg, rgba(20, 117, 110, 0.95) 0%, rgba(26, 145, 135, 0.95) 100%), url('/img/hero-bg.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
         color: white;
-        padding: 80px 0 60px;
+        padding: 100px 0 80px;
         margin-bottom: 60px;
         position: relative;
         overflow: hidden;
@@ -143,25 +146,35 @@
                             </div>
                             <div>
                                 <h5 class="mb-1">Alamat Kantor</h5>
-                                <p class="mb-0 text-muted"><?= $settings['contact_address'] ?? 'Jl. Raden Saleh No.18 Rt.002/Rw.009 Karang Mulya Karang Tengah Kota Tangerang Titik Kios Mega Ria Ruko Pojok No.5, Patokan Samping Gepuk Pak Gembus Sebrang Klinik Stella Medika' ?></p>
+                                <p class="mb-0 text-muted"><?= $settings['contact_address'] ?? 'Jl. Raden Saleh No.18 Rt.002/Rw.009 Karang Mulya Karang Tengah Kota Tangerang' ?></p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="btn-square bg-primary flex-shrink-0 me-3 rounded">
-                                <i class="fa fa-phone-alt text-white"></i>
+
+                        <hr class="my-4">
+
+                        <!-- Store 1 -->
+                        <div class="mb-4">
+                            <h6 class="text-primary fw-bold text-uppercase mb-3">Store 1 (Harmony)</h6>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-phone-alt text-primary me-3"></i>
+                                <p class="mb-0 text-muted">0813-1974-0808</p>
                             </div>
-                            <div>
-                                <h5 class="mb-1">Telepon</h5>
-                                <p class="mb-0 text-muted"><?= $settings['contact_phone'] ?? '+62 0813-1974-0808' ?></p>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-envelope text-primary me-3"></i>
+                                <p class="mb-0 text-muted">harmony.decor26@gmail.com</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center mb-5">
-                            <div class="btn-square bg-primary flex-shrink-0 me-3 rounded">
-                                <i class="fa fa-envelope-open text-white"></i>
+
+                        <!-- Store 2 -->
+                        <div class="mb-5">
+                            <h6 class="text-primary fw-bold text-uppercase mb-3">Store 2 (Kumgang)</h6>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-phone-alt text-primary me-3"></i>
+                                <p class="mb-0 text-muted">0857-7112-2100</p>
                             </div>
-                            <div>
-                                <h5 class="mb-1">Email</h5>
-                                <p class="mb-0 text-muted"><?= $settings['contact_email'] ?? 'harmony.decor26@gmail.com' ?></p>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-envelope text-primary me-3"></i>
+                                <p class="mb-0 text-muted">toko.kumgang26@gmail.com</p>
                             </div>
                         </div>
 

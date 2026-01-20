@@ -37,6 +37,11 @@ class Settings extends BaseController
         $model = new SiteSettingModel();
         $postData = $this->request->getPost();
 
+        // Khusus untuk maintenance_mode, jika tidak ada di post berarti off
+        if (!isset($postData['maintenance_mode'])) {
+            $postData['maintenance_mode'] = 'off';
+        }
+
         foreach ($postData as $key => $value) {
             // Check if setting exists
             $existing = $model->where('key_name', $key)->first();
@@ -44,8 +49,8 @@ class Settings extends BaseController
             if ($existing) {
                 $model->update($existing['id'], ['value' => $value]);
             } else {
-                // Optional: Create new setting if strictly defined keys are not enforced
-                // $model->insert(['key_name' => $key, 'value' => $value]);
+                // Create new setting if it doesn't exist
+                $model->insert(['key_name' => $key, 'value' => $value]);
             }
         }
 

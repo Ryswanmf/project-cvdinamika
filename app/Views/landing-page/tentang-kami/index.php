@@ -3,9 +3,12 @@
 <style>
 /* Page Title Enhancement */
 .page-title-box {
-    background: linear-gradient(135deg, #14756E 0%, #1a9187 100%);
+    background: linear-gradient(135deg, rgba(20, 117, 110, 0.95) 0%, rgba(26, 145, 135, 0.95) 100%), url('/img/hero-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 80px 0 60px;
+    padding: 100px 0 80px;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
@@ -157,9 +160,9 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-4">
-                        <a href="https://wa.me/<?= $settings['contact_phone'] ?? '' ?>" class="btn btn-primary rounded-pill px-4 me-3" target="_blank">
+                        <button onclick="toggleWA()" class="btn btn-primary rounded-pill py-3 px-5 me-3">
                             <i class="fab fa-whatsapp me-2"></i> Hubungi Kami
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

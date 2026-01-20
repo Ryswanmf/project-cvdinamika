@@ -68,6 +68,50 @@
                         <div class="form-text">Biarkan kosong jika tidak ingin mengubah gambar. Ukuran maksimal: 2MB</div>
                     </div>
 
+                    <div class="mb-4">
+                        <label for="file_catalog" class="form-label">Katalog / Brosur PDF (Opsional)</label>
+                        <?php if(!empty($product['file_catalog'])): ?>
+                            <div class="mb-2">
+                                <a href="<?= base_url('uploads/products/catalogs/' . $product['file_catalog']) ?>" target="_blank" class="btn btn-sm btn-outline-info">
+                                    <i class="fas fa-file-pdf me-1"></i> Lihat Katalog Saat Ini
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <input type="file" class="form-control <?= session('validation') && session('validation')->hasError('file_catalog') ? 'is-invalid' : '' ?>" 
+                               id="file_catalog" name="file_catalog" accept="application/pdf">
+                        <div class="invalid-feedback"><?= session('validation') ? session('validation')->getError('file_catalog') : '' ?></div>
+                        <div class="form-text">Upload file PDF baru untuk mengganti. Maks 5MB.</div>
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">Galeri Varian (Motif/Warna)</h5>
+                    
+                    <div class="mb-3">
+                        <label for="gallery" class="form-label">Upload Varian Baru</label>
+                        <input type="file" class="form-control" id="gallery" name="gallery[]" accept="image/*" multiple>
+                        <div class="form-text">Bisa pilih banyak gambar sekaligus.</div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <?php if(!empty($gallery)): ?>
+                            <?php foreach($gallery as $img): ?>
+                            <div class="col-md-3 col-6">
+                                <div class="card h-100 border shadow-sm">
+                                    <img src="<?= base_url('uploads/products/gallery/' . $img['image']) ?>" class="card-img-top" style="height: 120px; object-fit: cover;">
+                                    <div class="card-body p-2 text-center">
+                                        <a href="<?= site_url('admin/produk/delete-image/' . $img['id']) ?>" 
+                                           class="btn btn-sm btn-danger w-100" 
+                                           onclick="return confirm('Hapus varian ini?')">
+                                            <i class="fas fa-trash"></i> Hapus
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
                     <div class="d-flex justify-content-end gap-2">
                         <a href="<?= site_url('admin/produk') ?>" class="btn btn-light px-4">
                             <i class="fas fa-times me-2"></i>Batal

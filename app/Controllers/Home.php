@@ -11,27 +11,33 @@ use App\Models\TeamModel;
 use App\Models\TestimonialModel;
 use App\Models\FaqModel;
 use App\Models\BannerModel;
+use App\Models\ServiceModel;
+use App\Models\ProductImageModel;
 
 class Home extends BaseController
 {
     protected $siteSettings;
     protected $projectModel;
     protected $productModel;
+    protected $productImageModel;
     protected $blogModel;
     protected $teamModel;
     protected $testimonialModel;
     protected $faqModel;
     protected $bannerModel;
+    protected $serviceModel;
 
     public function __construct()
     {
         $this->projectModel = new ProjectModel();
         $this->productModel = new ProductModel();
+        $this->productImageModel = new ProductImageModel();
         $this->blogModel = new BlogModel();
         $this->teamModel = new TeamModel();
         $this->testimonialModel = new TestimonialModel();
         $this->faqModel = new FaqModel();
         $this->bannerModel = new BannerModel();
+        $this->serviceModel = new ServiceModel();
 
         // Cache site settings for 1 hour
         $this->siteSettings = cache('site_settings');
@@ -64,11 +70,12 @@ class Home extends BaseController
                 'areaServed' => 'ID',
                 'availableLanguage' => 'Indonesian'
             ],
-            'sameAs' => [
-                'https://www.instagram.com/harmony_decor_karangtengah',
-                'https://tk.tokopedia.com/ZSaJJGgC2/',
-                'https://s.shopee.co.id/2g4xeUpgAS'
-            ]
+            'sameAs' => array_values(array_filter([
+                $this->siteSettings['social_instagram'] ?? null,
+                $this->siteSettings['social_facebook'] ?? null,
+                $this->siteSettings['link_tokopedia'] ?? null,
+                $this->siteSettings['link_shopee'] ?? null
+            ]))
         ];
 
         $data = [
@@ -78,6 +85,7 @@ class Home extends BaseController
             'teams' => $this->teamModel->findAll(),
             'testimonials' => $this->testimonialModel->findAll(),
             'banners' => $this->bannerModel->where('is_active', 1)->orderBy('sort_order', 'ASC')->findAll(),
+            'services' => $this->serviceModel->orderBy('sort_order', 'ASC')->findAll(),
             'schema' => $schema
         ];
         try {
@@ -174,6 +182,9 @@ class Home extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
+        // Ambil galeri varian
+        $gallery = $this->productImageModel->where('product_id', $id)->findAll();
+
         // Ambil 4 produk terkait (selain produk ini)
         $relatedProducts = $this->productModel->where('id !=', $id)
                                               ->where('category', $product['category'])
@@ -207,6 +218,7 @@ class Home extends BaseController
             'og_image' => base_url('uploads/products/' . $product['image']),
             'settings' => $this->siteSettings,
             'product' => $product,
+            'gallery' => $gallery,
             'related_products' => $relatedProducts,
             'schema' => $schema // Pass schema to view
         ];

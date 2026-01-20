@@ -27,7 +27,14 @@
                         <form action="/admin/settings/update" method="post">
                             <?= csrf_field() ?>
                             
-                            <h6 class="text-muted mb-3 text-uppercase small fw-bold">Informasi Umum</h6>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="text-muted text-uppercase small fw-bold mb-0">Informasi Umum</h6>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="maintenance_mode" name="maintenance_mode" value="on" <?= ($settings['maintenance_mode'] ?? 'off') == 'on' ? 'checked' : '' ?>>
+                                    <label class="form-check-label fw-bold text-danger" for="maintenance_mode">Mode Maintenance</label>
+                                </div>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="site_title" class="form-label">Nama Situs / Perusahaan</label>
                                 <input type="text" class="form-control" id="site_title" name="site_title" value="<?= $settings['site_title'] ?? '' ?>">
@@ -55,6 +62,26 @@
                             <div class="mb-4">
                                 <label for="contact_address" class="form-label">Alamat Lengkap</label>
                                 <textarea class="form-control" id="contact_address" name="contact_address" rows="3"><?= $settings['contact_address'] ?? '' ?></textarea>
+                            </div>
+
+                            <h6 class="text-muted mb-3 text-uppercase small fw-bold pt-3 border-top">Tautan Media Sosial & Marketplace</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label"><i class="fab fa-instagram me-2"></i>Instagram URL</label>
+                                    <input type="text" class="form-control" name="social_instagram" value="<?= $settings['social_instagram'] ?? '' ?>" placeholder="https://instagram.com/username">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label"><i class="fab fa-facebook me-2"></i>Facebook URL</label>
+                                    <input type="text" class="form-control" name="social_facebook" value="<?= $settings['social_facebook'] ?? '' ?>" placeholder="https://facebook.com/page">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label"><i class="fas fa-shopping-bag me-2"></i>Tokopedia URL</label>
+                                    <input type="text" class="form-control" name="link_tokopedia" value="<?= $settings['link_tokopedia'] ?? '' ?>" placeholder="https://tokopedia.com/toko">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label"><i class="fas fa-shopping-cart me-2"></i>Shopee URL</label>
+                                    <input type="text" class="form-control" name="link_shopee" value="<?= $settings['link_shopee'] ?? '' ?>" placeholder="https://shopee.co.id/toko">
+                                </div>
                             </div>
 
                             <div class="d-flex justify-content-end">

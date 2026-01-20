@@ -43,6 +43,14 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('banner/store', 'Admin\Banner::store');
     $routes->get('banner/delete/(:num)', 'Admin\Banner::delete/$1');
 
+    // Services
+    $routes->get('services', 'Admin\Services::index');
+    $routes->get('services/create', 'Admin\Services::create');
+    $routes->post('services/store', 'Admin\Services::store');
+    $routes->get('services/edit/(:num)', 'Admin\Services::edit/$1');
+    $routes->post('services/update/(:num)', 'Admin\Services::update/$1');
+    $routes->get('services/delete/(:num)', 'Admin\Services::delete/$1');
+
     // FAQ
     $routes->get('faq', 'Admin\Faq::index');
     $routes->get('faq/create', 'Admin\Faq::create');
@@ -67,6 +75,7 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('produk/edit/(:num)', 'Admin\Produk::edit/$1');
     $routes->post('produk/update/(:num)', 'Admin\Produk::update/$1');
     $routes->get('produk/delete/(:num)', 'Admin\Produk::delete/$1');
+    $routes->get('produk/delete-image/(:num)', 'Admin\Produk::delete_image/$1');
 
     // Contacts (Inbox)
     $routes->get('kontak', 'Admin\Kontak::index');

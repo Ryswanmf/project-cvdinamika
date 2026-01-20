@@ -36,6 +36,7 @@ class Filters extends BaseFilters
         'performance'   => PerformanceMetrics::class,
         'auth'          => \App\Filters\Auth::class,
         'visitor'       => \App\Filters\VisitorTracking::class,
+        'maintenance'   => \App\Filters\MaintenanceFilter::class,
     ];
 
     /**
@@ -74,6 +75,7 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
+            'maintenance',
             // 'honeypot',
             'csrf',
             'visitor',

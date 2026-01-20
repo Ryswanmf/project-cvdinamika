@@ -59,7 +59,15 @@
                         <input type="file" class="form-control <?= session('validation') && session('validation')->hasError('image') ? 'is-invalid' : '' ?>" 
                                id="image" name="image" accept="image/*" required>
                         <div class="invalid-feedback"><?= session('validation') ? session('validation')->getError('image') : '' ?></div>
-                        <div class="form-text">Ukuran maksimal: 2MB. Format: JPG, PNG, JPEG</div>
+                        <div class="form-text">Ukuran maksimal: 5MB. Format: JPG, PNG, JPEG</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="file_catalog" class="form-label">Katalog / Brosur PDF (Opsional)</label>
+                        <input type="file" class="form-control <?= session('validation') && session('validation')->hasError('file_catalog') ? 'is-invalid' : '' ?>" 
+                               id="file_catalog" name="file_catalog" accept="application/pdf">
+                        <div class="invalid-feedback"><?= session('validation') ? session('validation')->getError('file_catalog') : '' ?></div>
+                        <div class="form-text">Upload file spesifikasi produk (PDF). Maks 5MB.</div>
                     </div>
 
                     <div class="d-flex justify-content-end gap-2">

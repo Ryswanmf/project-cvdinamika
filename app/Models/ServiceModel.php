@@ -4,17 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProductModel extends Model
+class ServiceModel extends Model
 {
-    protected $table            = 'products';
+    protected $table            = 'services';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['name', 'category', 'description', 'details', 'price', 'image', 'file_catalog'];
+    protected $allowedFields    = ['title', 'description', 'icon', 'image', 'sort_order'];
 
-    // Dates
     protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 }

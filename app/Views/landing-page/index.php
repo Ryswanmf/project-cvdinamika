@@ -36,38 +36,56 @@
                 </div>
             </div>
             <div class="row g-5 animated fadeIn">
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-shopping-cart text-primary"></i>
+                <?php if(!empty($services)): ?>
+                    <?php 
+                    // Tampilkan hanya 4 layanan utama di Hero
+                    $heroServices = array_slice($services, 0, 4);
+                    foreach($heroServices as $service): 
+                    ?>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                                <i class="fas <?= esc($service['icon']) ?> text-primary"></i>
+                            </div>
+                            <h5 class="lh-base mb-0"><?= esc($service['title']) ?></h5>
                         </div>
-                        <h5 class="lh-base mb-0">Penjualan produk</h5>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-tools text-primary"></i>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <!-- Default Hardcoded if no services -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                                <i class="fa fa-shopping-cart text-primary"></i>
+                            </div>
+                            <h5 class="lh-base mb-0">Penjualan produk</h5>
                         </div>
-                        <h5 class="lh-base mb-0">Pemasangan produk</h5>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-truck text-primary"></i>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                                <i class="fa fa-tools text-primary"></i>
+                            </div>
+                            <h5 class="lh-base mb-0">Pemasangan produk</h5>
                         </div>
-                        <h5 class="lh-base mb-0">Pengiriman produk tepat waktu</h5>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-shield-alt text-primary"></i>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                                <i class="fa fa-truck text-primary"></i>
+                            </div>
+                            <h5 class="lh-base mb-0">Pengiriman produk tepat waktu</h5>
                         </div>
-                        <h5 class="lh-base mb-0">Garansi Material dan Pemasangan</h5>
                     </div>
-                </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                                <i class="fa fa-shield-alt text-primary"></i>
+                            </div>
+                            <h5 class="lh-base mb-0">Garansi Material dan Pemasangan</h5>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -182,6 +200,29 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
 
     <!-- Feature End -->
 
+    <!-- Call to Action Start -->
+    <div class="container-fluid py-5 my-5 cta-section" style="background: linear-gradient(rgba(20, 117, 110, 0.8), rgba(20, 117, 110, 0.8)), url('img/hero-bg.jpg') fixed center center; background-size: cover;">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-8 text-white wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="display-4 text-white mb-3">Butuh Konsultasi Lantai Vinyl?</h1>
+                    <p class="lead mb-0">Tim ahli kami siap membantu Anda menghitung kebutuhan material, survey lokasi gratis, dan memberikan penawaran terbaik untuk proyek Anda.</p>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="d-grid gap-3">
+                        <button onclick="toggleWA()" class="btn btn-light py-3 px-5 rounded-pill">
+                            <i class="fab fa-whatsapp me-2 text-primary"></i> Chat WhatsApp
+                        </button>
+                        <a href="/kontak" class="btn btn-outline-light py-3 px-5 rounded-pill">
+                            <i class="fa fa-envelope me-2"></i> Hubungi Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to Action End -->
+
 
     <!-- Project Start -->
     <div class="container-fluid mt-5 py-5">
@@ -247,16 +288,24 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                     
                     <h5 class="mb-3">Adapun pelayanan kami meliputi:</h5>
                     <div class="row g-2 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Penjualan Produk</p>
-                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Survey Lokasi Pemasangan</p>
-                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Pengiriman Tepat Waktu</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Pemasangan Produk</p>
-                            <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Garansi Material</p>
-                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Garansi Pemasangan</p>
-                        </div>
+                        <?php if(!empty($services)): ?>
+                            <?php foreach($services as $service): ?>
+                            <div class="col-sm-6">
+                                <p class="mb-2"><i class="fa fa-check text-primary me-2"></i><?= esc($service['title']) ?></p>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="col-sm-6">
+                                <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Penjualan Produk</p>
+                                <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Survey Lokasi Pemasangan</p>
+                                <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Pengiriman Tepat Waktu</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Pemasangan Produk</p>
+                                <p class="mb-2"><i class="fa fa-check text-primary me-2"></i>Garansi Material</p>
+                                <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Garansi Pemasangan</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     
                     <div class="d-flex align-items-center bg-light rounded p-3">
@@ -264,57 +313,42 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                             <i class="fa fa-phone fa-2x text-white"></i>
                         </div>
                         <div class="ps-3">
-                            <h5 class="mb-1">+62 0813-1974-0808</h5>
+                            <h5 class="mb-1"><?= $settings['contact_phone'] ?? '+62 0813-1974-0808' ?></h5>
                             <small>Hubungi kami untuk konsultasi gratis</small>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-3">
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="service-item h-100 d-flex flex-column bg-primary rounded overflow-hidden">
-                                <div class="service-img position-relative">
-                                    <img class="img-fluid w-100" src="img/service-1.jpg" alt="Penjualan Produk" style="height: 140px; object-fit: cover;">
-                                </div>
-                                <div class="p-3 flex-grow-1 d-flex flex-column">
-                                    <h5 class="text-white mb-2">Penjualan Produk</h5>
-                                    <p class="text-white mb-0 small" style="text-align: justify;">Menyediakan lantai vinyl dan kayu berkualitas tinggi dari brand LX Hausys & LG Hausys dengan harga kompetitif.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="service-item h-100 d-flex flex-column bg-light rounded overflow-hidden">
-                                <div class="service-img position-relative">
-                                    <img class="img-fluid w-100" src="img/service-2.jpg" alt="Survey & Konsultasi" style="height: 140px; object-fit: cover;">
-                                </div>
-                                <div class="p-3 flex-grow-1 d-flex flex-column">
-                                    <h5 class="mb-2">Survey & Konsultasi</h5>
-                                    <p class="mb-0 small" style="text-align: justify;">Layanan survey lokasi gratis dan konsultasi pemilihan produk yang tepat sesuai kebutuhan proyek Anda.</p>
+                        <?php if(!empty($services)): ?>
+                            <?php foreach($services as $key => $service): ?>
+                            <div class="col-md-6 wow fadeIn" data-wow-delay="<?= 0.2 + ($key * 0.2) ?>s">
+                                <div class="service-item h-100 d-flex flex-column <?= ($key % 2 == 0) ? 'bg-primary' : 'bg-light' ?> rounded overflow-hidden">
+                                    <div class="service-img position-relative">
+                                        <img class="img-fluid w-100" src="<?= base_url('uploads/services/' . $service['image']) ?>" alt="<?= esc($service['title']) ?>" style="height: 140px; object-fit: cover;">
+                                    </div>
+                                    <div class="p-3 flex-grow-1 d-flex flex-column">
+                                        <h5 class="<?= ($key % 2 == 0) ? 'text-white' : 'text-dark' ?> mb-2"><?= esc($service['title']) ?></h5>
+                                        <p class="<?= ($key % 2 == 0) ? 'text-white' : 'text-muted' ?> mb-0 small" style="text-align: justify;"><?= esc($service['description']) ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="service-item h-100 d-flex flex-column bg-light rounded overflow-hidden">
-                                <div class="service-img position-relative">
-                                    <img class="img-fluid w-100" src="img/service-3.jpg" alt="Instalasi Profesional" style="height: 140px; object-fit: cover;">
-                                </div>
-                                <div class="p-3 flex-grow-1 d-flex flex-column">
-                                    <h5 class="mb-2">Instalasi Profesional</h5>
-                                    <p class="mb-0 small" style="text-align: justify;">Pemasangan oleh tim ahli bersertifikat dengan teknik welding presisi untuk hasil yang rapi dan tahan lama.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
-                            <div class="service-item h-100 d-flex flex-column bg-primary rounded overflow-hidden">
-                                <div class="service-img position-relative">
-                                    <img class="img-fluid w-100" src="img/service-4.jpg" alt="Garansi & After Sales" style="height: 140px; object-fit: cover;">
-                                </div>
-                                <div class="p-3 flex-grow-1 d-flex flex-column">
-                                    <h5 class="text-white mb-2">Garansi & After Sales</h5>
-                                    <p class="text-white mb-0 small" style="text-align: justify;">Garansi material dan pemasangan serta layanan purna jual yang responsif untuk kepuasan Anda.</p>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Default Hardcoded -->
+                            <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="service-item h-100 d-flex flex-column bg-primary rounded overflow-hidden">
+                                    <div class="service-img position-relative">
+                                        <img class="img-fluid w-100" src="img/service-1.jpg" alt="Penjualan Produk" style="height: 140px; object-fit: cover;">
+                                    </div>
+                                    <div class="p-3 flex-grow-1 d-flex flex-column">
+                                        <h5 class="text-white mb-2">Penjualan Produk</h5>
+                                        <p class="text-white mb-0 small" style="text-align: justify;">Menyediakan lantai vinyl dan kayu berkualitas tinggi dari brand LX Hausys & LG Hausys dengan harga kompetitif.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <!-- ... other static items ... -->
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -332,7 +366,7 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="https://www.tokopedia.com/harmonydecor" target="_blank" class="marketplace-link">
+                    <a href="<?= $settings['link_tokopedia'] ?? 'https://www.tokopedia.com' ?>" target="_blank" class="marketplace-link">
                         <div class="marketplace-card tokopedia-card">
                             <div class="marketplace-logo-wrapper">
                                 <img src="<?= base_url('img/tokopedia_logo.webp') ?>" alt="Tokopedia" class="marketplace-logo">
@@ -349,7 +383,7 @@ yang diperuntukkan bagi Pelanggan yang mengutamakan kualitas.</p>
                     </a>
                 </div>
                 <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a href="https://s.shopee.co.id/2g4xeUpgAS" target="_blank" class="marketplace-link">
+                    <a href="<?= $settings['link_shopee'] ?? 'https://shopee.co.id' ?>" target="_blank" class="marketplace-link">
                         <div class="marketplace-card shopee-card">
                             <div class="marketplace-logo-wrapper">
                                 <img src="<?= base_url('img/shopee_logo.png') ?>" alt="Shopee" class="marketplace-logo shopee-logo">

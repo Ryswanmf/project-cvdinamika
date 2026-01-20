@@ -23,8 +23,47 @@
                 <!-- Product Images -->
                 <div class="col-lg-5 wow slideInUp" data-wow-delay="0.1s">
                     <div class="position-relative overflow-hidden mb-4 border rounded shadow-sm bg-white">
-                        <img class="img-fluid w-100" src="<?= base_url('uploads/products/' . $product['image']) ?>" alt="<?= esc($product['name']) ?>" id="mainImage" style="min-height: 400px; object-fit: cover;">
+                        <a href="<?= base_url('uploads/products/' . $product['image']) ?>" class="glightbox" data-gallery="product-gallery">
+                            <img class="img-fluid w-100" src="<?= base_url('uploads/products/' . $product['image']) ?>" alt="<?= esc($product['name']) ?>" id="mainImage" style="min-height: 400px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 end-0 p-3">
+                                <span class="badge bg-dark bg-opacity-50 rounded-circle p-2"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </a>
                     </div>
+                    
+                    <?php if(!empty($gallery)): ?>
+                    <div class="d-flex overflow-auto gap-2 pb-2" style="scrollbar-width: thin;">
+                        <!-- Main Image Thumb -->
+                        <img src="<?= base_url('uploads/products/' . $product['image']) ?>" 
+                             class="img-thumbnail cursor-pointer gallery-thumb border-primary" 
+                             style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                             onclick="changeImage(this, '<?= base_url('uploads/products/' . $product['image']) ?>')">
+                             
+                        <!-- Gallery Thumbs -->
+                        <?php foreach($gallery as $img): ?>
+                        <a href="<?= base_url('uploads/products/gallery/' . $img['image']) ?>" class="glightbox d-none" data-gallery="product-gallery"></a>
+                        <img src="<?= base_url('uploads/products/gallery/' . $img['image']) ?>" 
+                             class="img-thumbnail cursor-pointer gallery-thumb" 
+                             style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                             onclick="changeImage(this, '<?= base_url('uploads/products/gallery/' . $img['image']) ?>')">
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    <script>
+                        function changeImage(element, fullSrc) {
+                            // Swap main image src
+                            document.getElementById('mainImage').src = fullSrc;
+                            // Update lightbox href
+                            document.querySelector('.position-relative a.glightbox').href = fullSrc;
+                            
+                            // Update active border
+                            document.querySelectorAll('.gallery-thumb').forEach(el => {
+                                el.classList.remove('border-primary');
+                            });
+                            element.classList.add('border-primary');
+                        }
+                    </script>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Product Info -->
@@ -74,12 +113,19 @@
                     </div>
 
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="https://wa.me/<?= $settings['contact_phone'] ?? '6281234567890' ?>?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20<?= urlencode($product['name']) ?>%20di%20website%20CV%20Dinamika" class="btn btn-primary rounded-pill py-3 px-5 shadow-sm" target="_blank">
+                        <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $settings['contact_phone'] ?? '6281319740808') ?>?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20<?= urlencode($product['name']) ?>%20di%20website%20CV%20Dinamika" class="btn btn-primary rounded-pill py-3 px-5 shadow-sm" target="_blank">
                             <i class="fab fa-whatsapp me-2"></i> Pesan Sekarang
                         </a>
-                        <a href="#" class="btn btn-outline-dark rounded-pill py-3 px-5 shadow-sm">
-                            <i class="fa fa-download me-2"></i> Unduh Katalog
-                        </a>
+                        
+                        <?php if(!empty($product['file_catalog'])): ?>
+                            <a href="<?= base_url('uploads/products/catalogs/' . $product['file_catalog']) ?>" class="btn btn-outline-dark rounded-pill py-3 px-5 shadow-sm" target="_blank">
+                                <i class="fa fa-download me-2"></i> Unduh Katalog
+                            </a>
+                        <?php else: ?>
+                            <button class="btn btn-outline-secondary rounded-pill py-3 px-5 shadow-sm" disabled title="Katalog belum tersedia">
+                                <i class="fa fa-download me-2"></i> Katalog Belum Tersedia
+                            </button>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

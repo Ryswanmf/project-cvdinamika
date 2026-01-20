@@ -121,11 +121,15 @@
 
     /* Page Title */
     .page-title-box {
-        background: linear-gradient(135deg, #14756E 0%, #1a9187 100%);
+        background: linear-gradient(135deg, rgba(20, 117, 110, 0.95) 0%, rgba(26, 145, 135, 0.95) 100%), url('/img/hero-bg.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
         color: white;
-        padding: 80px 0 60px;
+        padding: 100px 0 80px;
         margin-bottom: 0; /* Remove margin bottom for seamless transition */
         position: relative;
+        overflow: hidden;
     }
     
     .page-title-main {

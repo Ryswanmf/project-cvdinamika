@@ -4,14 +4,17 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
+use App\Models\ProductImageModel;
 
 class Produk extends BaseController
 {
     protected $productModel;
+    protected $productImageModel;
 
     public function __construct()
     {
         $this->productModel = new ProductModel();
+        $this->productImageModel = new ProductImageModel();
         helper('image');
     }
 
@@ -68,6 +71,10 @@ class Produk extends BaseController
             'image' => [
                 'rules' => 'uploaded[image]|max_size[image,5120]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'label' => 'Gambar'
+            ],
+            'file_catalog' => [
+                'rules' => 'max_size[file_catalog,5120]|mime_in[file_catalog,application/pdf]',
+                'label' => 'Katalog PDF'
             ]
         ])) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
@@ -77,9 +84,15 @@ class Produk extends BaseController
         $imageName = $fileImage->getRandomName();
         
         // Use helper function to compress image
-        // Path relative to index.php (FCPATH)
-        $uploadPath = 'uploads/products';
-        upload_and_compress($fileImage, $uploadPath, $imageName, 80, 1000);
+        upload_and_compress($fileImage, 'uploads/products', $imageName, 80, 1000);
+
+        // Handle Catalog PDF
+        $catalogName = null;
+        $fileCatalog = $this->request->getFile('file_catalog');
+        if ($fileCatalog && $fileCatalog->isValid() && !$fileCatalog->hasMoved()) {
+            $catalogName = $fileCatalog->getRandomName();
+            $fileCatalog->move('uploads/products/catalogs', $catalogName);
+        }
 
         $this->productModel->save([
             'name' => $this->request->getPost('name'),
@@ -87,7 +100,8 @@ class Produk extends BaseController
             'description' => $this->request->getPost('description'),
             'details' => $this->request->getPost('details'),
             'price' => $this->request->getPost('price'),
-            'image' => $imageName
+            'image' => $imageName,
+            'file_catalog' => $catalogName
         ]);
 
         return redirect()->to(site_url('admin/produk'))->with('success', 'Produk berhasil ditambahkan.');
@@ -100,10 +114,14 @@ class Produk extends BaseController
             return redirect()->to(site_url('admin/produk'))->with('error', 'Produk tidak ditemukan.');
         }
 
+        // Get gallery images
+        $gallery = $this->productImageModel->where('product_id', $id)->findAll();
+
         $data = [
             'title' => 'Edit Produk',
             'page_title' => 'Edit Produk',
             'product' => $product,
+            'gallery' => $gallery,
             'validation' => \Config\Services::validation()
         ];
         return view('admin/produk/edit', $data);
@@ -139,6 +157,14 @@ class Produk extends BaseController
             ];
         }
 
+        // Validasi katalog pdf
+        if ($this->request->getFile('file_catalog')->isValid()) {
+            $rules['file_catalog'] = [
+                'rules' => 'uploaded[file_catalog]|max_size[file_catalog,5120]|mime_in[file_catalog,application/pdf]',
+                'label' => 'Katalog PDF'
+            ];
+        }
+
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
@@ -152,25 +178,57 @@ class Produk extends BaseController
             'price' => $this->request->getPost('price'),
         ];
 
+        // Handle Image
         $fileImage = $this->request->getFile('image');
         if ($fileImage->isValid() && !$fileImage->hasMoved()) {
-            // Hapus gambar lama jika ada
             if ($product['image'] && file_exists('uploads/products/' . $product['image'])) {
                 unlink('uploads/products/' . $product['image']);
             }
-            
             $imageName = $fileImage->getRandomName();
-            
-            // Use helper function to compress image
-            $uploadPath = 'uploads/products';
-            upload_and_compress($fileImage, $uploadPath, $imageName, 80, 1000);
-            
+            upload_and_compress($fileImage, 'uploads/products', $imageName, 80, 1000);
             $data['image'] = $imageName;
+        }
+
+        // Handle Catalog PDF
+        $fileCatalog = $this->request->getFile('file_catalog');
+        if ($fileCatalog->isValid() && !$fileCatalog->hasMoved()) {
+            // Hapus katalog lama
+            if (!empty($product['file_catalog']) && file_exists('uploads/products/catalogs/' . $product['file_catalog'])) {
+                unlink('uploads/products/catalogs/' . $product['file_catalog']);
+            }
+            $catalogName = $fileCatalog->getRandomName();
+            $fileCatalog->move('uploads/products/catalogs', $catalogName);
+            $data['file_catalog'] = $catalogName;
         }
 
         $this->productModel->save($data);
 
-        return redirect()->to(site_url('admin/produk'))->with('success', 'Produk berhasil diperbarui.');
+        // Handle Gallery Uploads
+        if ($imagefile = $this->request->getFiles()) {
+            if (isset($imagefile['gallery'])) {
+                foreach ($imagefile['gallery'] as $img) {
+                    if ($img->isValid() && ! $img->hasMoved()) {
+                        $newName = $img->getRandomName();
+                        // Upload ke folder gallery
+                        // Buat folder dulu jika belum ada, tapi upload_and_compress biasanya butuh path yang valid
+                        // Asumsi folder uploads/products/gallery sudah dibuat manual atau otomatis oleh script
+                        if (!is_dir('uploads/products/gallery')) {
+                            mkdir('uploads/products/gallery', 0777, true);
+                        }
+                        
+                        upload_and_compress($img, 'uploads/products/gallery', $newName, 70, 800);
+                        
+                        $this->productImageModel->insert([
+                            'product_id' => $id,
+                            'image' => $newName,
+                            'title' => '' 
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return redirect()->to(site_url('admin/produk/edit/'.$id))->with('success', 'Produk dan Galeri berhasil diperbarui.');
     }
 
     public function delete($id)
@@ -180,9 +238,34 @@ class Produk extends BaseController
             if ($product['image'] && file_exists('uploads/products/' . $product['image'])) {
                 unlink('uploads/products/' . $product['image']);
             }
+            if (!empty($product['file_catalog']) && file_exists('uploads/products/catalogs/' . $product['file_catalog'])) {
+                unlink('uploads/products/catalogs/' . $product['file_catalog']);
+            }
+            
+            // Hapus gallery images
+            $gallery = $this->productImageModel->where('product_id', $id)->findAll();
+            foreach ($gallery as $img) {
+                if (file_exists('uploads/products/gallery/' . $img['image'])) {
+                    unlink('uploads/products/gallery/' . $img['image']);
+                }
+            }
+            
             $this->productModel->delete($id);
             return redirect()->to(site_url('admin/produk'))->with('success', 'Produk berhasil dihapus.');
         }
         return redirect()->to(site_url('admin/produk'))->with('error', 'Gagal menghapus produk.');
+    }
+
+    public function delete_image($id)
+    {
+        $img = $this->productImageModel->find($id);
+        if ($img) {
+            if (file_exists('uploads/products/gallery/' . $img['image'])) {
+                unlink('uploads/products/gallery/' . $img['image']);
+            }
+            $this->productImageModel->delete($id);
+            return redirect()->back()->with('success', 'Gambar varian dihapus.');
+        }
+        return redirect()->back()->with('error', 'Gambar tidak ditemukan.');
     }
 }

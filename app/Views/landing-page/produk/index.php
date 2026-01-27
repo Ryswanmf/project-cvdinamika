@@ -150,6 +150,37 @@
                 </div>
             </div>
 
+            <!-- Download Deskripsi Section (shown when specific category is selected) -->
+            <?php 
+            $categoryDescFiles = [
+                'HOMOGENEOUS SHEET' => 'DESKRIPSI PRODUK HOMOGENEOUS SHEET.docx',
+                'HETEROGENEOUS SHEET' => 'DESKRIPSI PRODUK HETEROGENEOUS SHEET.docx',
+                'HETEROGENEOUS SPECIALITY SHEET' => 'DESKRIPSI PRODUK HETEROGENEOUS SPECIALITY SHEET.docx',
+                'PLANK & TILE' => 'DESKRIPSI PRODUK PLANK & TILE.docx',
+                'AKSESORIS' => 'DESKRIPSI PRODUK AKSESORIS.docx'
+            ];
+            
+            if ($current_category != 'Semua' && isset($categoryDescFiles[$current_category])): 
+            ?>
+            <div class="row g-4 mb-5 wow fadeIn" data-wow-delay="0.4s">
+                <div class="col-12">
+                    <div class="alert alert-info border-0 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <div>
+                                <h5 class="mb-2"><i class="fas fa-file-download me-2 text-primary"></i>Deskripsi Produk Tersedia</h5>
+                                <p class="mb-0 text-muted">Download file deskripsi lengkap untuk kategori <strong><?= esc($current_category) ?></strong></p>
+                            </div>
+                            <a href="<?= base_url('uploads/brochures/' . $categoryDescFiles[$current_category]) ?>" 
+                               class="btn btn-primary" 
+                               download>
+                                <i class="fas fa-download me-2"></i>Download Deskripsi (.DOCX)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
             <!-- Brand Filter for HOMOGENEOUS SHEET -->
             <?php if($current_category == 'HOMOGENEOUS SHEET' && !$current_brand): ?>
             <div class="row g-4 mb-5 wow fadeIn" data-wow-delay="0.5s">

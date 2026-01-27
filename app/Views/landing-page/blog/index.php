@@ -311,9 +311,11 @@
         </div>
         
         <!-- Pagination -->
+        <?php if ($pager->getPageCount() > 1): ?>
         <div class="blog-pagination">
             <?= $pager->links() ?>
         </div>
+        <?php endif; ?>
     <?php endif; ?>
 </div>
 <!-- Blog Section End -->

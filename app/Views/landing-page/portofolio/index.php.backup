@@ -35,16 +35,38 @@
 
     /* Masonry Grid */
     .projects-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin: -15px;
+        position: relative;
+        min-height: 500px; /* Prevent collapse during loading */
     }
 
     .project-item {
-        flex: 0 0 33.333%;
-        max-width: 33.333%;
+        width: 33.333%;
         padding: 15px;
-        box-sizing: border-box;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    /* Staggered animation delays */
+    .project-item:nth-child(1) { animation-delay: 0.1s; }
+    .project-item:nth-child(2) { animation-delay: 0.2s; }
+    .project-item:nth-child(3) { animation-delay: 0.3s; }
+    .project-item:nth-child(4) { animation-delay: 0.4s; }
+    .project-item:nth-child(5) { animation-delay: 0.5s; }
+    .project-item:nth-child(6) { animation-delay: 0.6s; }
+    .project-item:nth-child(7) { animation-delay: 0.7s; }
+    .project-item:nth-child(8) { animation-delay: 0.8s; }
+    .project-item:nth-child(9) { animation-delay: 0.9s; }
+    .project-item:nth-child(n+10) { animation-delay: 1s; }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     
     .project-card {
@@ -52,15 +74,15 @@
         border-radius: 12px;
         padding: 0;
         border: 1px solid #e8f4f3;
-        transition: all 0.3s ease;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
         overflow: hidden;
         height: 100%;
         box-shadow: 0 5px 15px rgba(0,0,0,0.03);
     }
     
     .project-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(20, 117, 110, 0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(20, 117, 110, 0.2);
     }
     
     .project-image {
@@ -68,7 +90,6 @@
         height: 220px;
         overflow: hidden;
         position: relative;
-        cursor: pointer;
     }
     
     .project-image::before {
@@ -78,132 +99,103 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+        background: linear-gradient(135deg, rgba(20, 117, 110, 0.1) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
         z-index: 1;
     }
     
-    .project-image-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(20, 117, 110, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 2;
-    }
-    
-    .project-image:hover .project-image-overlay {
-        opacity: 1;
-    }
-    
-    .view-detail-btn {
-        background: white;
-        color: #14756E;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    
-    .view-detail-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-    
-    .project-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-    }
-    
-    .project-card:hover .project-image img {
-        transform: scale(1.1);
-    }
-    
-    .project-content {
-        padding: 20px;
+        position: relative;
     }
     
     .project-category {
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: #14756E;
-        background: rgba(20, 117, 110, 0.1);
-        padding: 5px 12px;
-        border-radius: 20px;
-        margin-bottom: 12px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        opacity: 0.9;
+        transition: all 0.3s ease;
+    }
+    
+    .project-card:hover .project-category {
+        opacity: 1;
+        letter-spacing: 1.5px;
     }
     
     .project-name {
-        font-size: 1.2rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.15rem;
         font-weight: 700;
-        color: #333;
-        margin: 10px 0;
+        color: #2c3e50;
+        margin-bottom: 12px;
         line-height: 1.4;
+        transition: color 0.3s ease;
+    }
+    
+    .project-card:hover .project-name {
+        color: #14756E
+    
+    .project-category {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #14756E;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    
+    .project-name {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #2c3e50;
+        opacity: 0.85;
+        transition: all 0.3s ease;
+    }
+    
+    .project-card:hover .project-details-item {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+    
+    .project-details-item i {
+        color: #14756E;
+        margin-right: 8px;
+        margin-top: 4px;
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover .project-details-item i {
+        transform: scale(1.1)
     }
     
     .project-details-item {
         display: flex;
         align-items: flex-start;
-        gap: 8px;
-        color: #555;
-        font-size: 0.85rem;
-        margin: 8px 0;
-        line-height: 1.5;
+        margin-bottom: 5px;
     }
     
     .project-details-item i {
         color: #14756E;
-        margin-top: 3px;
-        flex-shrink: 0;
+        margin-right: 8px;
+        margin-top: 4px;
+        font-size: 0.8rem;
     }
 
     /* Page Title */
     .page-title-box {
-        background: linear-gradient(135deg, #14756E 0%, #1a9187 100%);
+        background: linear-gradient(135deg, rgba(20, 117, 110, 0.95) 0%, rgba(26, 145, 135, 0.95) 100%), url('/img/hero-bg.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
         color: white;
-        padding: 80px 0 60px;
-        margin-bottom: 60px;
+        padding: 100px 0 80px;
+        margin-bottom: 0; /* Remove margin bottom for seamless transition */
         position: relative;
         overflow: hidden;
-    }
-    
-    .page-title-box::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-        background-size: cover;
-        background-position: bottom;
-        pointer-events: none;
-        z-index: 0;
-    }
-    
-    .page-title-box .container {
-        position: relative;
-        z-index: 1;
-    }
-    
-    .breadcrumb-item a {
-        position: relative;
-        z-index: 2;
-        cursor: pointer;
     }
     
     .page-title-main {
@@ -211,19 +203,16 @@
         font-size: 3.5rem;
         font-weight: 700;
         color: white;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
     @media (max-width: 992px) {
-        .project-item { flex: 0 0 50%; max-width: 50%; }
+        .project-item { width: 50%; }
     }
     @media (max-width: 768px) {
-        .project-item { flex: 0 0 100%; max-width: 100%; }
+        .project-item { width: 100%; }
         .portfolio-filters { gap: 10px; }
         .portfolio-filters li { padding: 8px 15px; font-size: 0.85rem; }
     }
-</style>
 </style>
 
 <!-- Page Header Start -->
@@ -272,19 +261,14 @@
         </div>
 
         <!-- Projects Container -->
-        <div class="row projects-container">
+        <div class="row projects-container wow fadeInUp" data-wow-delay="0.5s">
             <?php foreach ($projects as $project): 
                 $catClass = url_title($project['category'], '-', true);
             ?>
             <div class="project-item filter-<?= $catClass ?>">
                 <div class="project-card">
-                    <div class="project-image" onclick="openImageModal('<?= base_url('uploads/projects/' . $project['image']) ?>', '<?= esc($project['title']) ?>')">
+                    <div class="project-image">
                         <img src="<?= base_url('uploads/projects/' . $project['image']) ?>" alt="<?= esc($project['title']) ?>">
-                        <div class="project-image-overlay">
-                            <button class="view-detail-btn">
-                                <i class="fas fa-search-plus me-2"></i>Lihat Detail
-                            </button>
-                        </div>
                     </div>
                     <div class="project-content">
                         <div class="project-category"><?= esc($project['category']) ?></div>
@@ -308,66 +292,15 @@
                     </div>
                 </div>
             </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</div>
-
-<!-- Lightbox Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title" id="imageModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0">
-                <img id="modalImage" src="" alt="" class="img-fluid w-100">
-            </div>
-            <div class="modal-footer border-0">
-                <p class="text-muted mb-0" id="modalDescription"></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-/* Lightbox Modal Styling */
-#imageModal .modal-content {
-    border-radius: 15px;
-    overflow: hidden;
-    border: none;
-}
-
-#imageModal .modal-body {
-    background: #000;
-}
-
-#imageModal img {
-    max-height: 70vh;
-    object-fit: contain;
-}
-</style>
-
-<!-- Load Isotope -->
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var portfolioFilters = document.querySelectorAll('#portfolio-flters li');
-        var projectItems = document.querySelectorAll('.project-item');
-        
-        // Initialize WOW.js
-        var wow = new WOW({
-            boxClass: 'wow',
-            animateClass: 'animated',
-            offset: 0,
-            mobile: true,
-            live: true
+    window.addEventListener('load', function() {
+        var portfolioIsotope = new Isotope('.projects-container', {
+            itemSelector: '.project-item',
+            layoutMode: 'fitRows'
         });
-        wow.init();
 
-        // Filter functionality - instant display
+        // Filter items on button click with smooth animation
+        var portfolioFilters = document.querySelectorAll('#portfolio-flters li');
+        
         portfolioFilters.forEach(function(filterBtn) {
             filterBtn.addEventListener('click', function() {
                 // Remove active class from all
@@ -378,25 +311,33 @@
                 // Get filter value
                 var filterValue = this.getAttribute('data-filter');
                 
-                // Show/hide items instantly
-                projectItems.forEach(function(item) {
-                    if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                // Reset animation for filtered items
+                var items = document.querySelectorAll('.project-item');
+                items.forEach(function(item, index) {
+                    item.style.animation = 'none';
+                    setTimeout(function() {
+                        item.style.animation = '';
+                        item.style.animationDelay = (index * 0.1) + 's';
+                    }, 10);
                 });
+                
+                portfolioIsotope.arrange({ 
+                    filter: filterValue,
+                    transitionDuration: '0.6s'
+               
+        var portfolioFilters = document.querySelectorAll('#portfolio-flters li');
+        
+        portfolioFilters.forEach(function(filterBtn) {
+            filterBtn.addEventListener('click', function() {
+                // Remove active class from all
+                portfolioFilters.forEach(btn => btn.classList.remove('filter-active'));
+                // Add active class to clicked
+                this.classList.add('filter-active');
+                
+                // Get filter value
+                var filterValue = this.getAttribute('data-filter');
+                portfolioIsotope.arrange({ filter: filterValue });
             });
         });
     });
-    
-    // Image Modal Function
-    function openImageModal(imageSrc, title) {
-        document.getElementById('modalImage').src = imageSrc;
-        document.getElementById('imageModalLabel').textContent = title;
-        const modal = new bootstrap.Modal(document.getElementById('imageModal'));
-        modal.show();
-    }
 </script>
-
-<?= $this->include('landing-page/layout/footer') ?>

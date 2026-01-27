@@ -108,6 +108,36 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('testimonial/reject/(:num)', 'Admin\Testimonial::reject/$1');
     $routes->get('testimonial/delete/(:num)', 'Admin\Testimonial::delete/$1');
 
+    // Product Catalog (Google Drive-like)
+    $routes->get('product-catalog', 'Admin\ProductCatalog::index');
+    $routes->get('product-catalog/category/(:segment)', 'Admin\ProductCatalog::category/$1');
+    $routes->get('product-catalog/brand/(:segment)/(:segment)', 'Admin\ProductCatalog::brand/$1/$2');
+    $routes->get('product-catalog/collection/(:segment)/(:segment)/(:segment)', 'Admin\ProductCatalog::collection/$1/$2/$3');
+    
+    $routes->post('product-catalog/add-category', 'Admin\ProductCatalog::addCategory');
+    $routes->post('product-catalog/add-brand/(:segment)', 'Admin\ProductCatalog::addBrand/$1');
+    $routes->post('product-catalog/add-collection/(:segment)/(:segment)', 'Admin\ProductCatalog::addCollection/$1/$2');
+    
+    $routes->post('product-catalog/edit-category/(:segment)', 'Admin\ProductCatalog::editCategory/$1');
+    $routes->post('product-catalog/edit-brand/(:segment)/(:segment)', 'Admin\ProductCatalog::editBrand/$1/$2');
+    $routes->post('product-catalog/edit-collection/(:segment)/(:segment)/(:segment)', 'Admin\ProductCatalog::editCollection/$1/$2/$3');
+    $routes->post('product-catalog/edit-product/(:segment)/(:segment)/(:segment)', 'Admin\ProductCatalog::editProduct/$1/$2/$3');
+    $routes->post('product-catalog/edit-product/(:segment)/(:segment)', 'Admin\ProductCatalog::editProduct/$1/$2');
+    
+    // Upload description file
+    $routes->post('product-catalog/upload-description/(:segment)', 'Admin\ProductCatalog::uploadDescription/$1');
+    
+    // Upload products (POST)
+    $routes->post('product-catalog/upload-products', 'Admin\ProductCatalog::uploadProducts');
+    
+    // Delete routes - SPECIFIC ROUTES MUST COME BEFORE GENERAL ROUTES
+    $routes->get('product-catalog/delete-description/(:segment)', 'Admin\ProductCatalog::deleteDescription/$1');
+    $routes->get('product-catalog/delete-product/(:segment)/(:segment)/(:segment)/(:segment)', 'Admin\ProductCatalog::deleteProduct/$1/$2/$3/$4');
+    $routes->get('product-catalog/delete-product/(:segment)/(:segment)/(:segment)', 'Admin\ProductCatalog::deleteProduct/$1/$2/$3');
+    $routes->get('product-catalog/delete-collection/(:segment)/(:segment)/(:segment)', 'Admin\ProductCatalog::deleteCollection/$1/$2/$3');
+    $routes->get('product-catalog/delete-brand/(:segment)/(:segment)', 'Admin\ProductCatalog::deleteBrand/$1/$2');
+    $routes->get('product-catalog/delete-category/(:segment)', 'Admin\ProductCatalog::deleteCategory/$1');
+
     // System
     $routes->get('backup', 'Admin\Backup::index');
 });

@@ -1,0 +1,1029 @@
+{
+    "categories": [
+        {
+            "id": "homogeneous-sheet",
+            "name": "Homogeneous Sheet",
+            "description_file": "DESKRIPSI_PRODUK_HOMOGENEOUS_SHEET_20260124020648.docx",
+            "brands": [
+                {
+                    "id": "omega",
+                    "name": "OMEGA HOMOGENEOUS SHEET",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-697776c361a09",
+                            "name": "Vinyl Roll Omega (1)_page-0004",
+                            "image": "uploads\/products\/1769436867_975f9f08b1a7c9d2b393.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c3622aa",
+                            "name": "Vinyl Roll Omega (1)_page-0005",
+                            "image": "uploads\/products\/1769436867_a4ab50e9cea07c608467.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c362cb7",
+                            "name": "Vinyl Roll Omega (1)_page-0006",
+                            "image": "uploads\/products\/1769436867_16477c4c50f9e3f80bf7.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c36348f",
+                            "name": "Vinyl Roll Omega (1)_page-0007",
+                            "image": "uploads\/products\/1769436867_72e215fb687f584d8d43.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c363bed",
+                            "name": "Vinyl Roll Omega (1)_page-0003",
+                            "image": "uploads\/products\/1769436867_9f91dce05399428f11c6.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c3643b4",
+                            "name": "Vinyl Roll Omega (1)_page-0010",
+                            "image": "uploads\/products\/1769436867_406676421ac03f9f2713.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c364bb0",
+                            "name": "Vinyl Roll Omega (1)_page-0009",
+                            "image": "uploads\/products\/1769436867_2aeea2f166836f23148e.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c36530e",
+                            "name": "Vinyl Roll Omega (1)_page-0011",
+                            "image": "uploads\/products\/1769436867_9244b17374dd25343ce3.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c365aba",
+                            "name": "Vinyl Roll Omega (1)_page-0013",
+                            "image": "uploads\/products\/1769436867_00367a4014be69eca673.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c3662ef",
+                            "name": "Vinyl Roll Omega (1)_page-0008",
+                            "image": "uploads\/products\/1769436867_90ccc9d6c3e5aa1b4d0d.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697776c366a83",
+                            "name": "Vinyl Roll Omega (1)_page-0012",
+                            "image": "uploads\/products\/1769436867_383643890b9557ac4563.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "lx-hausys",
+                    "name": "LX HAUSYS",
+                    "has_subfolders": true,
+                    "subfolders": [
+                        {
+                            "id": "unite-2mm",
+                            "name": "LX HAUSYS UNITE 2MM",
+                            "description_file": "LX_HAUSYS_UNITE_2MM.docx",
+                            "items": [
+                                {
+                                    "id": "prod-697776df416af",
+                                    "name": "LG HAUSYS UNITE",
+                                    "image": "uploads\/products\/1769436895_10c17a3f57205ebc3bae.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "origin-2mm",
+                            "name": "LX HAUSYS ORIGIN 2MM",
+                            "description_file": "LX_HAUSYS_ORIGIN_2MM.docx",
+                            "items": [
+                                {
+                                    "id": "prod-6977773b8207a",
+                                    "name": "LG HAUSYS ORIGIN",
+                                    "image": "uploads\/products\/1769436987_f9d0c3dbbb051168df80.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6977773b82c4b",
+                                    "name": "LG HAUSYS ORIGIN COVER",
+                                    "image": "uploads\/products\/1769436987_0efe1605f82265e5ba9f.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "allroad-gf",
+                            "name": "ALLROAD GF",
+                            "description_file": "ALLROAD_GF.docx",
+                            "items": [
+                                {
+                                    "id": "prod-697777541820b",
+                                    "name": "Allroad GF",
+                                    "image": "uploads\/products\/1769437012_0ed654edde7291766414.jpeg",
+                                    "description": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "gerflor",
+                    "name": "GERFLOR",
+                    "has_subfolders": true,
+                    "subfolders": [
+                        {
+                            "id": "wall-mural",
+                            "name": "GERFLOR WALL MURAL PLUS WALL",
+                            "description_file": "GERFLOR_WALL_MURAL.docx",
+                            "items": [
+                                {
+                                    "id": "prod-69762598b8e88",
+                                    "name": "mural-plus-en-a4_page-0001",
+                                    "image": "uploads\/products\/1769350552_103aadff1bf642c93818.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762598ba23f",
+                                    "name": "mural-plus-en-a4_page-0002",
+                                    "image": "uploads\/products\/1769350552_7276e5b89331319ebd5c.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762598bbcd7",
+                                    "name": "mural-plus-en-a4_page-0003",
+                                    "image": "uploads\/products\/1769350552_b264ed12c6dfead29555.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "troplan-plus",
+                            "name": "Gerflor Mipolam troplan plus",
+                            "description_file": "GERFLOR_TROPLAN_PLUS.docx",
+                            "items": [
+                                {
+                                    "id": "prod-697625772eb3d",
+                                    "name": "mipolan-troplan-plus-product-card_page-0002",
+                                    "image": "uploads\/products\/1769350519_6748fcee87225ab394aa.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976257730209",
+                                    "name": "mipolan-troplan-plus-product-card_page-0004",
+                                    "image": "uploads\/products\/1769350519_dde9152e382b14cbaf4c.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762577318ea",
+                                    "name": "mipolan-troplan-plus-product-card_page-0003",
+                                    "image": "uploads\/products\/1769350519_7fdf67823eb1df7adc9a.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762577330d8",
+                                    "name": "mipolan-troplan-plus-product-card_page-0001",
+                                    "image": "uploads\/products\/1769350519_ae2ff6ebc998860dac58.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "mipolam-concept",
+                            "name": "Gerflor Mipolam Concept",
+                            "description_file": "GERFLOR_MIPOLAM_CONCEPT.docx",
+                            "items": [
+                                {
+                                    "id": "prod-6976255cbb59d",
+                                    "name": "cover depan mipolam concept",
+                                    "image": "uploads\/products\/1769350492_76cf491475d2e6affad7.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976255cbcf2c",
+                                    "name": "mipolam type 3",
+                                    "image": "uploads\/products\/1769350492_5e0939eaf6a81d0370d4.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976255cbec70",
+                                    "name": "mipolam tipe 4",
+                                    "image": "uploads\/products\/1769350492_6eef0830b6eee6af739d.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976255cc0a0c",
+                                    "name": "mipolam tipe 1",
+                                    "image": "uploads\/products\/1769350492_770176fe9ce160bff544.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976255cc262c",
+                                    "name": "mipolam tipe 2",
+                                    "image": "uploads\/products\/1769350492_13c66ecb6b9f33c4df78.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "mipolam-ambiance",
+                            "name": "Gerflor Mipolam Ambiance Ultra",
+                            "description_file": "GERFLOR_MIPOLAM_AMBIANCE.docx",
+                            "items": [
+                                {
+                                    "id": "prod-697625447fc97",
+                                    "name": "ambiance-ultra-en-2018_page-0001",
+                                    "image": "uploads\/products\/1769350468_72e4064df1f0c8d50bc4.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976254482f35",
+                                    "name": "ambiance-ultra-en-2018_page-0011",
+                                    "image": "uploads\/products\/1769350468_9cff906447af3ea3a482.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762544847c4",
+                                    "name": "ambiance-ultra-en-2018_page-0010",
+                                    "image": "uploads\/products\/1769350468_5b992454746826dde26d.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625448603b",
+                                    "name": "ambiance-ultra-en-2018_page-0006",
+                                    "image": "uploads\/products\/1769350468_7268df687cb25ed41d5a.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762544878ce",
+                                    "name": "ambiance-ultra-en-2018_page-0007",
+                                    "image": "uploads\/products\/1769350468_34f5f7131322e7745bd5.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976254488cdd",
+                                    "name": "ambiance-ultra-en-2018_page-0009",
+                                    "image": "uploads\/products\/1769350468_3ee7fd2b9479b9323317.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625448a32c",
+                                    "name": "ambiance-ultra-en-2018_page-0008",
+                                    "image": "uploads\/products\/1769350468_d11534cb142147f4659e.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "mipolam-180",
+                            "name": "GERFLOR MIPOLAM 180",
+                            "description_file": "GERFLOR_MIPOLAM_180.docx",
+                            "items": [
+                                {
+                                    "id": "prod-6976252737025",
+                                    "name": "download (1)",
+                                    "image": "uploads\/products\/1769350439_e9b8491581c54219918f.png",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762527382e1",
+                                    "name": "download (3)",
+                                    "image": "uploads\/products\/1769350439_86a3ac734d503c6a014a.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625273adee",
+                                    "name": "download (2)",
+                                    "image": "uploads\/products\/1769350439_1af18399a15741f6821b.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625273bfd9",
+                                    "name": "cover mipolam 180",
+                                    "image": "uploads\/products\/1769350439_1a1afba54ec7498aa2fe.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "mipolam-150",
+                            "name": "GERFLOR MIPOLAM 150",
+                            "description_file": "GERFLOR_MIPOLAM_150.docx",
+                            "items": [
+                                {
+                                    "id": "prod-69762505919a6",
+                                    "name": "gerflor-mipolam-150-card-en_pdf_348_enrich_page-0001",
+                                    "image": "uploads\/products\/1769350405_65246efee76c05c92adf.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976250592e7c",
+                                    "name": "gerflor-mipolam-150-card-en_pdf_348_enrich_page-0004",
+                                    "image": "uploads\/products\/1769350405_573cf574538fa2a49268.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762505948df",
+                                    "name": "gerflor-mipolam-150-card-en_pdf_348_enrich_page-0003",
+                                    "image": "uploads\/products\/1769350405_ba554454ddb4ef73af03.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976250595fb6",
+                                    "name": "gerflor-mipolam-150-card-en_pdf_348_enrich_page-0005",
+                                    "image": "uploads\/products\/1769350405_40c4f522aed07d4023bf.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "armstrong",
+                    "name": "AMSTRONG",
+                    "has_subfolders": true,
+                    "subfolders": [
+                        {
+                            "id": "armstrong-1",
+                            "name": "MEDINTONE",
+                            "description_file": "ARMSTRONG_COLLECTION_1.docx",
+                            "items": [
+                                {
+                                    "id": "prod-697625ff736a8",
+                                    "name": "Medintone Sample Folder (Digital Copy)_page-0001",
+                                    "image": "uploads\/products\/1769350655_e531d1b6b6dba4237e8c.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625ff74cfa",
+                                    "name": "Medintone Sample Folder (Digital Copy)_page-0005",
+                                    "image": "uploads\/products\/1769350655_afa196fe29f37e5ebc08.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625ff76948",
+                                    "name": "Medintone Sample Folder (Digital Copy)_page-0006",
+                                    "image": "uploads\/products\/1769350655_18a48e587a017ab0cd34.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625ff78282",
+                                    "name": "Medintone Sample Folder (Digital Copy)_page-0007",
+                                    "image": "uploads\/products\/1769350655_fd8a0e5e473e60d3ce48.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-697625ff79c0e",
+                                    "name": "Medintone Sample Folder (Digital Copy)_page-0004",
+                                    "image": "uploads\/products\/1769350655_6caf9f00d338c1c489ee.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "armstrong-2",
+                            "name": "STARLUX",
+                            "description_file": "ARMSTRONG_COLLECTION_2.docx",
+                            "items": [
+                                {
+                                    "id": "prod-6976261a4967c",
+                                    "name": "STARLUX Digital Sample Folder_page-0001",
+                                    "image": "uploads\/products\/1769350682_0da840334c79455fb08b.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976261a4b811",
+                                    "name": "STARLUX Digital Sample Folder_page-0003",
+                                    "image": "uploads\/products\/1769350682_18d0f772c08e2e105638.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976261a4d9cf",
+                                    "name": "STARLUX Digital Sample Folder_page-0004",
+                                    "image": "uploads\/products\/1769350682_fa24cedae724c90d8c4b.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976261a4f629",
+                                    "name": "STARLUX Digital Sample Folder_page-0005",
+                                    "image": "uploads\/products\/1769350682_86a1ed4eb3d3be471860.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "armstrong-3",
+                            "name": "ZANLITE",
+                            "description_file": "ARMSTRONG_COLLECTION_3.docx",
+                            "items": [
+                                {
+                                    "id": "prod-6976263285393",
+                                    "name": "YS-SF-Zanlite-0624 - -_page-0001",
+                                    "image": "uploads\/products\/1769350706_89c1e312ccb4f9534d81.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-6976263286e2f",
+                                    "name": "YS-SF-Zanlite-0624 - -_page-0002",
+                                    "image": "uploads\/products\/1769350706_f2c4741365318b8c5e51.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heterogeneous-sheet",
+            "name": "Heterogeneous Sheet",
+            "description_file": "DESKRIPSI_PRODUK_HETEROGENEOUS_SHEET_20260124020907.docx",
+            "brands": [
+                {
+                    "id": "alva-1-2mm",
+                    "name": "ALVA 1.2MM",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-697777b143f9c",
+                            "name": "ALVA 1.2MM",
+                            "image": "uploads\/products\/1769437105_4e8ead518c113c4a1614.png",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697777b14491c",
+                            "name": "KATALOG VINYL ALVA BARU_page-0023",
+                            "image": "uploads\/products\/1769437105_4e419341b010a1f4a097.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "bravo-1-5mm",
+                    "name": "BRAVO 1.5MM",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-697777c2884be",
+                            "name": "0002",
+                            "image": "uploads\/products\/1769437122_f7f4b2c6f7211810719e.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "gamma-2mm",
+                    "name": "GAMMA 2MM",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-697622627c2c3",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.14",
+                            "image": "uploads\/products\/1769349730_e0eda051e4e3673fea97.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697622627e028",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.14 (1)",
+                            "image": "uploads\/products\/1769349730_4317ca805b879e91ddb9.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697622627f871",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.17 (1)",
+                            "image": "uploads\/products\/1769349730_298c646bf5e2797d3397.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-6976226280dc5",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.16 (1)",
+                            "image": "uploads\/products\/1769349730_8688e3dfd1401e8ee30a.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697622628251b",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.15",
+                            "image": "uploads\/products\/1769349730_b8555c24d6fd96b3e7ea.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762262841de",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.16",
+                            "image": "uploads\/products\/1769349730_abacf8f607cc11587550.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-6976226285cfd",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.15 (1)",
+                            "image": "uploads\/products\/1769349730_a38edf2b31d161667567.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-6976226287215",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.18",
+                            "image": "uploads\/products\/1769349730_c79be19b9f01b51d64da.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697622628866b",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.17",
+                            "image": "uploads\/products\/1769349730_155bfeef364e6e811cc1.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-6976226289da9",
+                            "name": "WhatsApp Image 2023-10-24 at 15.17.18 (1)",
+                            "image": "uploads\/products\/1769349730_c9411462234e94fa586f.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-697622628b55e",
+                            "name": "E-CATALOG VINYL GAMMA_SMALL (1)_page-0001",
+                            "image": "uploads\/products\/1769349730_cf01037e3c3a721f177b.jpeg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "goldway",
+                    "name": "GOLDWAY",
+                    "has_subfolders": true,
+                    "subfolders": [
+                        {
+                            "id": "goldway-0-65mm",
+                            "name": "Goldway 0.65MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762b0db74b4",
+                                    "name": "WhatsApp Image 2024-02-19 at 10.33.41",
+                                    "image": "uploads\/products\/1769351949_ff21a893e03493b0c91f.jpeg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "goldway-1-2mm",
+                            "name": "Goldway 1.2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762b27eb85f",
+                                    "name": "GOLDWAY 1.2MM",
+                                    "image": "uploads\/products\/1769351975_c544dd28f38606bc91f2.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "goldway-plus-1-6mm",
+                            "name": "Goldway Plus 1.6MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762b46be552",
+                                    "name": "WhatsApp Image 2024-01-10 at 09.00.59",
+                                    "image": "uploads\/products\/1769352006_15a117b30d1b90916fb7.jpeg",
+                                    "description": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "kumgang-1-2mm",
+                    "name": "KUMGANG 1.2MM",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762bba95fc7",
+                            "name": "COVER KUMGANG (3)",
+                            "image": "uploads\/products\/1769352122_892f32ff1c90b9dcc5c7.png",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762bba97970",
+                            "name": "COVER KUMGANG (1)",
+                            "image": "uploads\/products\/1769352122_167ca747bdf6502e1bd4.png",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "lx-hausys-heterogenous-sheet",
+                    "name": "LX HAUSYS HETEROGENOUS SHEET",
+                    "has_subfolders": true,
+                    "subfolders": [
+                        {
+                            "id": "lx-hausys-abc-2mm",
+                            "name": "LX HAUSYS ABC 2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762c6010a94",
+                                    "name": "LX HAUSYS ABC",
+                                    "image": "uploads\/products\/1769352288_d4128035cefe2f04b0d0.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762c60121e2",
+                                    "name": "LX HAUSYS ABCc",
+                                    "image": "uploads\/products\/1769352288_35655c3c9ce16ae44315.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762c60137d8",
+                                    "name": "LX HAUSYS ABC COVER",
+                                    "image": "uploads\/products\/1769352288_6da69f0421f7d6605762.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-delight-2-2mm",
+                            "name": "LX HAUSYS DELIGHT 2.2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762c7484e97",
+                                    "name": "DELIGHT 2.2",
+                                    "image": "uploads\/products\/1769352308_4b3907f233eae3487b96.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-mini-2mm",
+                            "name": "LX HAUSYS MINI 2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762c8905077",
+                                    "name": "MINI",
+                                    "image": "uploads\/products\/1769352329_1d6b42d223e28de6cbbf.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-palace-1-5mm",
+                            "name": "LX HAUSYS PALACE 1.5MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762c9e3b35f",
+                                    "name": "PALACE 3",
+                                    "image": "uploads\/products\/1769352350_f34cf96637e4336a420f.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762c9e3cc4c",
+                                    "name": "PALACE 2",
+                                    "image": "uploads\/products\/1769352350_722e8ada0759ffdf7fe1.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762c9e3ea33",
+                                    "name": "PALACE COVER",
+                                    "image": "uploads\/products\/1769352350_c47aeca5c3c7f94d2d64.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-stone-collection-2mm",
+                            "name": "LX HAUSYS STONE COLLECTION 2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762cb5e65cc",
+                                    "name": "STONE COLL",
+                                    "image": "uploads\/products\/1769352373_5e18b7b9c365f17b2fb2.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-supreme-1-8mm",
+                            "name": "LX HAUSYS SUPREME 1.8MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762ccc36a88",
+                                    "name": "SUPREME 1.8 COVER",
+                                    "image": "uploads\/products\/1769352396_aecac4dbccfbcaf5b0d4.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762ccc385e9",
+                                    "name": "SUPREME 1.8",
+                                    "image": "uploads\/products\/1769352396_9c19f937171f86059748.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-trendy-2mm",
+                            "name": "LX HAUSYS TRENDY 2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762ce1204dd",
+                                    "name": "Trendy_page-0003",
+                                    "image": "uploads\/products\/1769352417_81979356625adcc586ee.jpg",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "prod-69762ce122275",
+                                    "name": "Trendy_page-0004",
+                                    "image": "uploads\/products\/1769352417_bd4fb6eb52efea2e2aaf.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lx-hausys-wood-collection-2mm",
+                            "name": "LX HAUSYS WOOD COLLECTION 2MM",
+                            "description_file": "",
+                            "items": [
+                                {
+                                    "id": "prod-69762cf70bee0",
+                                    "name": "WOOD COLL",
+                                    "image": "uploads\/products\/1769352439_ebd3443b455749a13ae6.jpg",
+                                    "description": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "meta-2mm",
+                    "name": "META 2MM",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762d128af2c",
+                            "name": "META VINYL FLOORING_page-0001",
+                            "image": "uploads\/products\/1769352466_2671ff94f0fc52949bb3.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762d128c5fd",
+                            "name": "META VINYL FLOORING_page-0002",
+                            "image": "uploads\/products\/1769352466_c64af04f9306b81ca259.jpg",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heterogeneous-speciality",
+            "name": "Heterogeneous Speciality Sheet",
+            "description_file": "DESKRIPSI_PRODUK_HETEROGENEOUS_SPECIALITY_SHEET_20260124020926.docx",
+            "brands": [
+                {
+                    "id": "lg-hausys-spec",
+                    "name": "LX HAUSYS LEISURE",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762eb9428b4",
+                            "name": "LEISURE",
+                            "image": "uploads\/products\/1769352889_f933240d56690808bc81.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "lx-hausys-rexcourt",
+                    "name": "LX HAUSYS REXCOURT",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762ecf24558",
+                            "name": "Rexcourt_page-0022",
+                            "image": "uploads\/products\/1769352911_f05b36cbeea718d0c50a.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ecf27ae1",
+                            "name": "Rexcourt_page-0018",
+                            "image": "uploads\/products\/1769352911_c1c31a457041c54c1152.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ecf29a21",
+                            "name": "Rexcourt_page-0008",
+                            "image": "uploads\/products\/1769352911_91db33b5b925c3048a99.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ecf2b661",
+                            "name": "Rexcourt_page-0001",
+                            "image": "uploads\/products\/1769352911_a855c4e38357245bcd81.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "sport-vinyl",
+                    "name": "SPORT VINYL",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762ee8f3e80",
+                            "name": "KATALOG VINYL SPORT FLOORING MAXIVE_page-0005",
+                            "image": "uploads\/products\/1769352936_ae6b67c2340f6b4db926.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ee9028b8",
+                            "name": "WhatsApp Image 2025-12-30 at 15.27.56",
+                            "image": "uploads\/products\/1769352937_8f5b6ba9a1bee69fbbb0.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ee903f20",
+                            "name": "WhatsApp Image 2025-12-30 at 15.27.56 (1)",
+                            "image": "uploads\/products\/1769352937_60e3b2ede2fb5d0b174e.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ee90533e",
+                            "name": "KATALOG VINYL SPORT FLOORING MAXIVE_page-0006",
+                            "image": "uploads\/products\/1769352937_067fef7329ed10ddf4b8.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762ee9063d8",
+                            "name": "KATALOG VINYL SPORT FLOORING MAXIVE_page-0004",
+                            "image": "uploads\/products\/1769352937_166d3f406eb3aba52f5e.jpeg",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "plank-tile",
+            "name": "Plank & Tile",
+            "description_file": "DESKRIPSI_PRODUK_PLANK___TILE_20260124021358.docx",
+            "brands": [
+                {
+                    "id": "lx-plank",
+                    "name": "SPC & LAMINATE GF",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762f4f60006",
+                            "name": "Catalogue of GFLOR_page-0006",
+                            "image": "uploads\/products\/1769353039_4b1beab038ea27bf7a71.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f4f61fc2",
+                            "name": "Catalogue of GFLOR_page-0002",
+                            "image": "uploads\/products\/1769353039_046144ec0278f4ad127e.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f4f64350",
+                            "name": "Catalogue of GFLOR_page-0001",
+                            "image": "uploads\/products\/1769353039_50fbdd43c3de14c3f743.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f4f68632",
+                            "name": "Catalogue of GFLOR_page-0003",
+                            "image": "uploads\/products\/1769353039_6e19ecf97b35a67c73ba.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f4f6a700",
+                            "name": "Catalogue of GFLOR_page-0004",
+                            "image": "uploads\/products\/1769353039_78374ba3343fba6f0285.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "lx-hausys-decotile",
+                    "name": "LX HAUSYS DECOTILE",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762f7624cc3",
+                            "name": "Decotile 2mm",
+                            "image": "uploads\/products\/1769353078_cf85a72b2b3a460951d9.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f7626429",
+                            "name": "2018 DECOTILE_page-0003",
+                            "image": "uploads\/products\/1769353078_07bd4510f6480925dcbb.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f7629988",
+                            "name": "2018 DECOTILE_page-0002",
+                            "image": "uploads\/products\/1769353078_04ec1f4f566e679883dd.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f762b49a",
+                            "name": "DECOTILE 2",
+                            "image": "uploads\/products\/1769353078_a3077b3da2999266ac4e.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f762ce3b",
+                            "name": "DECOTILE",
+                            "image": "uploads\/products\/1769353078_547379bb14caed368829.jpeg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f762f0f2",
+                            "name": "Cover",
+                            "image": "uploads\/products\/1769353078_e3ff6d07d4c5af1efbe5.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f7630c2c",
+                            "name": "DECOTILE 18x120",
+                            "image": "uploads\/products\/1769353078_dfbeaa67cd542ba9922b.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762f763248c",
+                            "name": "DECOTILE 3",
+                            "image": "uploads\/products\/1769353078_a657b9fe8e104e924ac9.jpg",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aksesoris",
+            "name": "Aksesoris",
+            "description_file": "DESKRIPSI PRODUK AKSESORIS.docx",
+            "brands": [
+                {
+                    "id": "capping-cove",
+                    "name": "Capping & Cove",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762fd87e9c0",
+                            "name": "CAPPING",
+                            "image": "uploads\/products\/1769353176_d819a7163ad65f085b23.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762fd87f99a",
+                            "name": "COVE",
+                            "image": "uploads\/products\/1769353176_f59f1bf8458c6da4fa78.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "lem-water-base",
+                    "name": "Lem Water Base",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762feb43bef",
+                            "name": "width_450",
+                            "image": "uploads\/products\/1769353195_aeae394af797be5c37c3.jpg",
+                            "description": ""
+                        },
+                        {
+                            "id": "prod-69762feb44daf",
+                            "name": "Desain tanpa judul (66)",
+                            "image": "uploads\/products\/1769353195_941044daebefef538157.jpg",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "welding-rod",
+                    "name": "Welding Rod",
+                    "has_subfolders": false,
+                    "items": [
+                        {
+                            "id": "prod-69762fff1c00d",
+                            "name": "kumgang welding",
+                            "image": "uploads\/products\/1769353215_22c6b889c7d091bf5da4.jpg",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

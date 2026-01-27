@@ -135,41 +135,6 @@ class Home extends BaseController
         return view('landing-page/portofolio/index', $data);
     }
 
-    public function products(): string
-    {
-        // Ambil filter kategori, brand, dan series dari URL
-        $category = $this->request->getGet('category');
-        $brand = $this->request->getGet('brand');
-        $series = $this->request->getGet('series');
-        
-        // Filter by category
-        if ($category && $category != 'Semua') {
-            $this->productModel->where('category', $category);
-        }
-        
-        // Filter by brand
-        if ($brand) {
-            $this->productModel->like('name', $brand, 'after');
-        }
-        
-        // Filter by series (sub-category dari brand)
-        if ($series) {
-            $this->productModel->like('name', $series, 'after');
-        }
-        
-        $products = $this->productModel->findAll();
-
-        $data = [
-            'title' => 'Koleksi Produk',
-            'settings' => $this->siteSettings,
-            'products' => $products,
-            'current_category' => $category ?? 'Semua',
-            'current_brand' => $brand ?? '',
-            'current_series' => $series ?? ''
-        ];
-        return view('landing-page/produk/index', $data);
-    }
-
     public function productDetail($id = null): \CodeIgniter\HTTP\ResponseInterface|string
     {
         if ($id === null) {
@@ -349,5 +314,16 @@ class Home extends BaseController
             'faqs' => $this->faqModel->orderBy('sort_order', 'ASC')->findAll()
         ];
         return view('landing-page/faq/index', $data);
+    }
+
+    public function products(): string
+    {
+        $data = [
+            'title' => 'Produk Kami - Koleksi Lantai Berkualitas Premium',
+            'settings' => $this->siteSettings,
+            'meta_description' => 'Jelajahi koleksi lengkap lantai vinyl premium kami dari brand terkemuka seperti LX Hausys, LG Hausys, Gerflor, Armstrong, dan lainnya.',
+            'meta_keywords' => 'lantai vinyl, homogeneous sheet, heterogeneous sheet, plank tile, LX Hausys, LG Hausys, Gerflor, Armstrong'
+        ];
+        return view('landing-page/products', $data);
     }
 }

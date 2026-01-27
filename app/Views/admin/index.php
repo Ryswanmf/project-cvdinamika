@@ -16,7 +16,7 @@
                             <i class="fas fa-box"></i>
                         </div>
                     </div>
-                    <a href="<?= site_url('admin/produk') ?>" class="text-white-50 small mt-3 d-block text-decoration-none">
+                    <a href="<?= site_url('admin/product-catalog') ?>" class="text-white-50 small mt-3 d-block text-decoration-none">
                         Lihat Semua <i class="fas fa-arrow-right ms-1"></i>
                     </a>
                 </div>
@@ -67,41 +67,49 @@
     <!-- Visitor Stats -->
     <div class="row g-4 mb-5">
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 hover-lift">
                 <div class="card-body p-4 d-flex align-items-center">
-                    <div class="btn-square bg-primary bg-opacity-10 rounded p-3 me-3">
-                        <i class="fas fa-users fa-2x text-primary"></i>
+                    <div class="icon-box bg-primary rounded-3 me-3">
+                        <i class="fas fa-users fa-3x text-white"></i>
                     </div>
                     <div>
-                        <h6 class="text-muted text-uppercase small fw-bold mb-1">Total Pengunjung</h6>
-                        <h3 class="fw-bold mb-0"><?= number_format($visitors_total) ?></h3>
+                        <h6 class="text-muted text-uppercase small fw-bold mb-1">
+                            <i class="fas fa-globe me-1"></i>Total Pengunjung
+                        </h6>
+                        <h3 class="fw-bold mb-0 counter"><?= number_format($visitors_total) ?></h3>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 hover-lift">
                 <div class="card-body p-4 d-flex align-items-center">
-                    <div class="btn-square bg-success bg-opacity-10 rounded p-3 me-3">
-                        <i class="fas fa-user-clock fa-2x text-success"></i>
+                    <div class="icon-box bg-success rounded-3 me-3">
+                        <i class="fas fa-user-clock fa-3x text-white"></i>
                     </div>
                     <div>
-                        <h6 class="text-muted text-uppercase small fw-bold mb-1">Pengunjung Hari Ini</h6>
-                        <h3 class="fw-bold mb-0"><?= number_format($visitors_today) ?></h3>
-                        <small class="text-success"><i class="fas fa-level-up-alt"></i> Active Now</small>
+                        <h6 class="text-muted text-uppercase small fw-bold mb-1">
+                            <i class="fas fa-calendar-day me-1"></i>Pengunjung Hari Ini
+                        </h6>
+                        <h3 class="fw-bold mb-0 counter"><?= number_format($visitors_today) ?></h3>
+                        <small class="text-success fw-bold">
+                            <i class="fas fa-arrow-up me-1"></i>Active Now
+                        </small>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 hover-lift">
                 <div class="card-body p-4 d-flex align-items-center">
-                    <div class="btn-square bg-info bg-opacity-10 rounded p-3 me-3">
-                        <i class="fas fa-history fa-2x text-info"></i>
+                    <div class="icon-box bg-info rounded-3 me-3">
+                        <i class="fas fa-history fa-3x text-white"></i>
                     </div>
                     <div>
-                        <h6 class="text-muted text-uppercase small fw-bold mb-1">Pengunjung Kemarin</h6>
-                        <h3 class="fw-bold mb-0"><?= number_format($visitors_yesterday) ?></h3>
+                        <h6 class="text-muted text-uppercase small fw-bold mb-1">
+                            <i class="fas fa-calendar-check me-1"></i>Pengunjung Kemarin
+                        </h6>
+                        <h3 class="fw-bold mb-0 counter"><?= number_format($visitors_yesterday) ?></h3>
                     </div>
                 </div>
             </div>
@@ -254,4 +262,74 @@
             }
         });
     </script>
+
+    <style>
+        /* Icon container box */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .icon-box:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Hover effect untuk card */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* Icon pulse animation */
+        .icon-pulse {
+            position: relative;
+            animation: pulse-shadow 2s infinite;
+        }
+
+        @keyframes pulse-shadow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(78, 115, 223, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 20px 5px rgba(78, 115, 223, 0);
+            }
+        }
+
+        /* Counter number animation */
+        .counter {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        /* Rounded icon container */
+        .btn-square {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover .btn-square {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* Active Now badge pulse */
+        @keyframes pulse-text {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .text-success i {
+            animation: pulse-text 2s infinite;
+        }
+    </style>
 <?= $this->endSection() ?>

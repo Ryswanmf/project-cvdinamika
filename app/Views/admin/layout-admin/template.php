@@ -17,6 +17,7 @@
         /* Sidebar Styling */
         #sidebar-wrapper {
             min-height: 100vh;
+            height: 100vh;
             margin-left: -250px;
             -webkit-transition: margin .25s ease-out;
             -moz-transition: margin .25s ease-out;
@@ -27,6 +28,25 @@
             position: fixed;
             z-index: 1000;
             width: 250px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #sidebar-wrapper::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #sidebar-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        #sidebar-wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        #sidebar-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
         #sidebar-wrapper .sidebar-heading {
@@ -35,10 +55,15 @@
             font-weight: bold;
             text-align: center;
             border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 10;
         }
 
         #sidebar-wrapper .list-group {
             width: 250px;
+            padding-bottom: 20px;
         }
 
         #page-content-wrapper {
@@ -83,6 +108,7 @@
             align-items: center;
             transition: all 0.3s;
             border-left: 4px solid transparent;
+            text-decoration: none;
         }
         .sidebar .nav-link:hover {
             background-color: #f8f9fa;
@@ -97,6 +123,12 @@
         .sidebar .nav-link i {
             width: 25px;
             margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .sidebar .nav-link span {
+            flex: 1;
+            white-space: nowrap;
+            overflow: visible;
         }
 
         /* Card Styling */

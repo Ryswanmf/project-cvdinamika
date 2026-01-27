@@ -39,10 +39,14 @@ class Admin extends BaseController
             ];
         }
 
+        // Count products from catalog JSON
+        $total_products = $this->countProductsFromCatalog();
+        
         $data = [
             'title' => 'Dashboard Admin',
             'page_title' => 'Dashboard Overview',
-            'total_products' => $productModel->countAllResults(),
+            'total_products' => $total_products,
+            'total_categories' => 0, // Will be counted from catalog
             'total_blogs' => $blogModel->countAllResults(),
             'unread_contacts' => $contactModel->where('status', 'unread')->countAllResults(),
             'recent_contacts' => $contactModel->orderBy('created_at', 'DESC')->findAll(5),
@@ -53,5 +57,49 @@ class Admin extends BaseController
         ];
 
         return view('admin/index', $data);
+    }
+    
+    /**
+     * Count total products from catalog JSON file
+     */
+    private function countProductsFromCatalog()
+    {
+        $catalogPath = FCPATH . 'data' . DIRECTORY_SEPARATOR . 'products.json';
+        
+        if (!file_exists($catalogPath)) {
+            return 0;
+        }
+        
+        $json = file_get_contents($catalogPath);
+        $catalog = json_decode($json, true);
+        
+        if (!$catalog || !isset($catalog['categories'])) {
+            return 0;
+        }
+        
+        $total = 0;
+        
+        // Count products in all categories
+        foreach ($catalog['categories'] as $category) {
+            if (isset($category['brands'])) {
+                foreach ($category['brands'] as $brand) {
+                    // Count products directly in brand
+                    if (isset($brand['items']) && is_array($brand['items'])) {
+                        $total += count($brand['items']);
+                    }
+                    
+                    // Count products in collections/subfolders
+                    if (isset($brand['subfolders']) && is_array($brand['subfolders'])) {
+                        foreach ($brand['subfolders'] as $subfolder) {
+                            if (isset($subfolder['items']) && is_array($subfolder['items'])) {
+                                $total += count($subfolder['items']);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $total;
     }
 }
